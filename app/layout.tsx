@@ -1,8 +1,8 @@
-"use client";
-import "./globals.css";
+'use client';
+import './globals.css';
 
-import Footer from "../src/components/layout/footer/footer";
-import Header from "../src/components/layout/header/header";
+import Footer from '../src/components/layout/footer/footer';
+import Header from '../src/components/layout/header/header';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface RootLayoutProps {
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html lang="ru">
+    <html lang='ru'>
       <head />
       <body>
         <Header />
