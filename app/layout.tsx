@@ -1,21 +1,23 @@
-'use client'
+"use client";
+import "./globals.css";
 
-import { CacheProvider } from '@chakra-ui/next-js'
-import { ChakraProvider } from '@chakra-ui/react'
+import Footer from "../src/components/layout/footer/footer";
+import Header from "../src/components/layout/header/header";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode,
-}) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html lang='en'>
+    <html lang="ru">
       <head />
       <body>
-        <CacheProvider>
-          <ChakraProvider>{children}</ChakraProvider>
-        </CacheProvider>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
-  )
-}
+  );
+};
+export default RootLayout;
