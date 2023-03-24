@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 const Header = () => {
   return (
-    <header className='bg-gray-300'>
+    <header className='bg-gray-700'>
       <nav className='flex justify-between items-center p-2'>
         <span>
           <Link href='/'>
@@ -12,10 +12,10 @@ const Header = () => {
         </span>
         <ul className='flex gap-2'>
           <Link href='/calendar'>
-            <li className='hover:text-blue-400 cursor-pointer'>Календарь</li>
+            <li className='hover:text-amber-300 cursor-pointer text-white font-semibold'>Календарь</li>
           </Link>
           <Link href='/profile'>
-            <li className='hover:text-blue-400 cursor-pointer'>
+            <li className='hover:text-amber-300 cursor-pointer text-white font-semibold'>
               Личный кабинет
             </li>
           </Link>
