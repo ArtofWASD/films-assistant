@@ -26,3 +26,7 @@ h1 {
 h2 {
   font-size: 22px;
 }
+
+.movie-card {
+  width: 35rem;
+}

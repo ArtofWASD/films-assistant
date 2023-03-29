@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import MyInput from '../../ui/input/input';
+import MyInput from '../../../utils/ui/input';
 const Header = () => {
   return (
     <header className='bg-gray-700'>
