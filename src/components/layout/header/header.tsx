@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import MyInput from '../../ui/input/input';
 const Header = () => {
   return (
     <header className='bg-gray-700'>
@@ -10,6 +11,7 @@ const Header = () => {
             <Image src='/images/cinema.png' alt='logo' width='35' height='35' />
           </Link>
         </span>
+        <span> <MyInput/></span>
         <ul className='flex gap-2'>
           <Link href='/profile'>
             <li className='hover:text-amber-300 cursor-pointer text-white font-semibold'>

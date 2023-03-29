@@ -4,18 +4,17 @@ import React from 'react';
 const MyInput = () => {
   return (
     <>
-      <section className='flex flex-col items-center gap-3'>
-        <p>Поиск</p>
-        <div className='flex gap-2'>
+      <section>
+        <div className='MyInput-logo flex gap-2'>
           <Image
             src='/images/searching-bar.png'
             alt='search_bar_icon'
-            height={30}
-            width={30}
+            height={28}
+            width={28}
           />
           <input
             type='search'
-            className='border border-2 rounded-md w-96 px-2 text-center'
+            className='MyInput-input border-2 rounded-md w-96 px-2 text-center'
             placeholder='Название фильма или сериала'
           />
         </div>

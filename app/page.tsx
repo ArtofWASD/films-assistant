@@ -5,7 +5,6 @@ const Page = () => {
   return (
     <main>
       <div className='flex justify-center py-4 text-xl'>Main Page</div>
-      <MyInput/>
     </main>
   );
 };
