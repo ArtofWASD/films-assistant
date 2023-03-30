@@ -4,14 +4,13 @@ import getLatestMovie from '../../src/utils/handlers/getLatestMovie';
 
 const Tops = async () => {
   const movieItem = await getLatestMovie();
-  console.log(movieItem);
-
+ 
   return (
     <>
       <div className='grid grid-cols-2 gap-4'>
         {movieItem?.items.map((movie: any) => (
-          <div>
-            <MovieCardPreview props={movie} />
+          <div key={movie.kinopoiskId}>
+            <MovieCardPreview props={movie}/>
           </div>
         ))}
       </div>
