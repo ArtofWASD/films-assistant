@@ -1,6 +1,5 @@
 import React from 'react';
 import LeftMenu from '../src/components/left-menu/left-menu';
-import MyInput from '../src/utils/ui/input';
 
 const Page = () => {
   return (
