@@ -7,7 +7,7 @@ const Tops = async () => {
  
   return (
     <>
-      <div className='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-2 gap-4 mb-16'>
         {movieItem?.items.map((movie: any) => (
           <div key={movie.kinopoiskId}>
             <MovieCardPreview props={movie}/>
