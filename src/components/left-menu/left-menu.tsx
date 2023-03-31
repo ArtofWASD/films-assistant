@@ -11,6 +11,12 @@ const LeftMenu = () => {
         <li className='font-semibold hover:text-orange-600 text-xl'>
           <Link href='/tops/Tv_series'>Сериалы</Link>
         </li>
+        <li className='font-semibold hover:text-orange-600 text-xl'>
+          <Link href='/tops/Mini_series'>Мини мериалы</Link>
+        </li>
+        <li className='font-semibold hover:text-orange-600 text-xl'>
+          <Link href='/tops/Tv_show'>Тв передачи</Link>
+        </li>
       </ul>
     </section>
   );

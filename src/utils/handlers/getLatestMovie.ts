@@ -1,6 +1,4 @@
-const getLatestMovie = async (query: string) => {
-  console.log(query);
-  
+const getLatestMovie = async (query: string) => {  
     const item = await fetch(
       `https://kinopoiskapiunofficial.tech/api/v2.2/films?type=${query}&yearFrom=2022&yearTo=2022&page=2`,
       {

@@ -4,6 +4,7 @@ import Rating from '../../rating/rating';
 interface MovieCardPreviewProps {
   props: {
     nameRu: string;
+    nameOriginal?: string;
     posterUrl: string;
     year: number;
     filmLength: number;
@@ -26,7 +27,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
             />
           </div>
           <div className=''>
-            <h2>{props.nameRu}</h2>
+            <h2>{props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}</h2>
             <div className='flex gap-1'>
               <p className='font-semibold'>Год выпуска:</p>
               {props.year}
