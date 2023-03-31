@@ -8,7 +8,7 @@ const Header = () => {
       <nav className='flex justify-between items-center py-2 px-4'>
         <span>
           <Link href='/'>
-            <Image src='/images/cinema.png' alt='logo' width='35' height='35' />
+            <Image src='/images/cinema.png' alt='logo' width={190} height={35} />
           </Link>
         </span>
         <span> <MyInput/></span>
