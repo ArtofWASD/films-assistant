@@ -45,14 +45,14 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
             </div>
             {props.ratingKinopoisk ? (
               <Rating
-                title='Рейтинг Кинопоиска:'
+                title='Рейтинг Кинопоиска'
                 rating={props.ratingKinopoisk}
               />
             ) : (
               <></>
             )}
             {props.ratingImdb ? (
-              <Rating title='Рейтинг Imdb:' rating={props.ratingImdb} />
+              <Rating title='Рейтинг Imdb' rating={props.ratingImdb} />
             ) : (
               <></>
             )}

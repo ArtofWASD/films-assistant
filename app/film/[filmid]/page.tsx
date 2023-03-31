@@ -1,8 +1,10 @@
 import React from 'react';
 import getMovie from '../../../src/utils/handlers/getMovieHandler';
 import MovieCard from '../../../src/components/movie-card/movie-card';
-
-const FilmPage = async () => {
+interface FilmPageParams {
+  params: string;
+}
+const FilmPage = async ({ params }: FilmPageParams) => {
   const item = await getMovie();
   return (
     <>
