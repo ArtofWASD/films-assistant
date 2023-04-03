@@ -23,7 +23,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <ul className='pagination flex gap-2 justify-center'>
         {prevPage > 0 && (
           <li className='page-item'>
-            <Link href={`/movies?page=${prevPage}`}>
+            <Link href={`/tops/${filmType}?page=${prevPage}`}>
               <p className='page-link'>Previous</p>
             </Link>
           </li>
@@ -47,7 +47,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
         {nextPage <= totalPages && (
           <li className='page-item'>
-            <Link href={`/movies?page=${nextPage}`}>
+            <Link href={`/tops/${filmType}?page=${nextPage}`}>
               <p className='page-link'>Next</p>
             </Link>
           </li>
