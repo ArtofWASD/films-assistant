@@ -27,7 +27,9 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
             />
           </div>
           <div className=''>
-            <h2>{props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}</h2>
+            <h2>
+              {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}
+            </h2>
             <div className='flex gap-1'>
               <p className='font-semibold'>Год выпуска:</p>
               {props.year}
@@ -44,19 +46,26 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
                 })}
               </ul>
             </div>
-            {props.ratingKinopoisk ? (
-              <Rating
-                title='Рейтинг Кинопоиска'
-                rating={props.ratingKinopoisk}
-              />
-            ) : (
-              <></>
-            )}
-            {props.ratingImdb ? (
-              <Rating title='Рейтинг Imdb' rating={props.ratingImdb} />
-            ) : (
-              <></>
-            )}
+            <div className='flex gap-2 py-2'>
+              {props.ratingKinopoisk ? (
+                <Rating
+                  title='Кинопоиск'
+                  rating={props.ratingKinopoisk}
+                  icon='/images/icon-kp.png'
+                />
+              ) : (
+                <></>
+              )}
+              {props.ratingImdb ? (
+                <Rating
+                  title='IMDb'
+                  rating={props.ratingImdb}
+                  icon='/images/imdb.png'
+                />
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
         </div>
       </section>

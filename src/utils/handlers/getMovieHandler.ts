@@ -1,6 +1,6 @@
-const getMovie = async () => {
+const getMovie = async (id:number) => {
   const item = await fetch(
-    'https://kinopoiskapiunofficial.tech/api/v2.2/films/301',
+    `https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`,
     {
       method: 'GET',
       headers: {
