@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import formatMinutes from '../../utils/handlers/movieLenghtFormatHandler';
+import Genres from '../genres/genres';
 import Rating from '../rating/rating';
 
 interface MovieCardProps {
@@ -13,6 +14,7 @@ interface MovieCardProps {
     filmLength: number;
     ratingKinopoisk: number;
     ratingImdb: number;
+    genres: [string];
   };
 }
 const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
@@ -34,6 +36,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
           <div className='movie-card_description'>
             <div>{props.description}</div>
             <div>Продолжительность: {formatMinutes(props.filmLength)}</div>
+            <div className='flex gap-1'>
+              <Genres genres={props.genres} />
+            </div>
             <div className='movie-card_rating flex gap-2 py-2'>
               {props.ratingKinopoisk ? (
                 <Rating

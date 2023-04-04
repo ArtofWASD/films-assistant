@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Genres from '../../genres/genres';
 import Rating from '../../rating/rating';
 
 interface MovieCardPreviewProps {
@@ -35,16 +36,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
               {props.year}
             </div>
             <div className='flex gap-1'>
-              <p className='font-semibold'>Жанр:</p>
-              <ul className='flex gap-1'>
-                {props.genres.map((item: any, index: number) => {
-                  if (index === props.genres.length - 1) {
-                    return <li key={item.genre}>{item.genre}.</li>;
-                  } else {
-                    return <li key={item.genre}>{item.genre},</li>;
-                  }
-                })}
-              </ul>
+              <Genres genres={props.genres} />
             </div>
             <div className='flex gap-2 py-2'>
               {props.ratingKinopoisk ? (
