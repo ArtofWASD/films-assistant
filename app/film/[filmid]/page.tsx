@@ -10,9 +10,9 @@ const FilmPage = async ({ params }: FilmPageParams) => {
   const item = await getMovie(params.filmid);
   
   return (
-    <div className='flex justify-center'>
+    <section className='flex justify-center'>
       <MovieCard props={item} />
-    </div>
+    </section>
   );
 };
 

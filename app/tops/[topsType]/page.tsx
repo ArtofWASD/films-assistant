@@ -11,8 +11,6 @@ interface TopsParams {
 const Tops = async ({ params }: TopsParams) => {
   const query = await params.topsType.toUpperCase();
   const movieItem = await getLatestMovie(query, 1);
-  console.log(movieItem);
-
   return (
     <section>
       <div className='grid grid-cols-2 gap-4'>

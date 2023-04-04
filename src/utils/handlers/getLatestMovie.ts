@@ -1,6 +1,6 @@
 const getLatestMovie = async (query: string, page:number) => {  
     const item = await fetch(
-      `https://kinopoiskapiunofficial.tech/api/v2.2/films?type=${query}&yearFrom=2022&yearTo=2022&page=${page}`,
+      `https://kinopoiskapiunofficial.tech/api/v2.2/films?type=${query}&yearFrom=2023&yearTo=2023&page=${page}`,
       {
         method: 'GET',
         headers: {
