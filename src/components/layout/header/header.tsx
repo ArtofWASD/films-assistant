@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className='bg-gradient-to-r from-red-500 via-purple-500 to-blue-500'>
       <nav className='flex justify-between items-center py-2 px-4'>
-        <span>
+        <span className=''>
           <Link href='/'>
             <Image src='/images/cinema.png' alt='logo' width={130} height={35} />
           </Link>

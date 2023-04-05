@@ -11,10 +11,10 @@ const LeftMenu = () => {
           <Link href='/lists/tv_series'>Сериалы</Link>
         </li>
         <li className='font-semibold hover:text-orange-600 text-xl hover:drop-shadow-xl'>
-          <Link href='/lists/mini_series'>Мини мериалы</Link>
+          <Link href='/lists/mini_series'>Мини сериалы</Link>
         </li>
         <li className='font-semibold hover:text-orange-600 text-xl hover:drop-shadow-xl'>
-          <Link href='/lists/tv_show'>Тв передачи</Link>
+          <Link href='/lists/tv_show'>Тв сериалы</Link>
         </li>
       </ul>
     </section>

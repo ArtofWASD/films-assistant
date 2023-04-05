@@ -7,11 +7,9 @@ const Page = () => {
       <h1 className='text-center py-4'>
         Кинотаймер. Твой личный кинокалендарь!
       </h1>
-      <div className='grid grid-cols-10 h-96 mx-5 gap-2 '>
-        <div className='col-start-2'>
+      <div className='grid grid-cols-[200px_800px] justify-center mx-5 gap-2 '>
+        <div className=''>
           <LeftMenu />
-        </div>
-        <div className='w-100 h-full bg-slate-200 bg-opacity-25 col-start-3 col-span-7 text-3xl text-center'>
         </div>
       </div>
     </main>

@@ -14,7 +14,7 @@ const MyInput = () => {
           />
           <input
             type='search'
-            className='MyInput-input border-2 rounded-md w-96 px-2 text-center'
+            className='MyInput-input border-2 rounded-md sm:w-48 md:w-96 px-2 text-center'
             placeholder='Название фильма или сериала'
           />
         </div>
