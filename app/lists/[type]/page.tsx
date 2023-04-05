@@ -13,19 +13,15 @@ const Tops = async ({ params }: TopsParams) => {
   const query = await params.type.toUpperCase()
   const movieItem = await getLatestMovie(query, 1);  
   return (
-    <section>
-      <Button/>
-      <div className='grid grid-cols-2 gap-4'>
+    <div>
+      <div className='grid grid-cols-2 gap-2 pb-20'>
         {movieItem?.items?.map((movie: any) => (
           <Link href={`lists/${params.type}/${movie.kinopoiskId}`} key={movie.kinopoiskId}>
-            <div>
               <MovieCardPreview props={movie} />
-            </div>
           </Link>
         ))}
       </div>
-      
-    </section>
+    </div>
   );
 };
 

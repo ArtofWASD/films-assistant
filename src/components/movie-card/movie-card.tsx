@@ -35,7 +35,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
           </div>
           <div className='movie-card_description'>
             <div>{props.description}</div>
-            <div>Продолжительность: {formatMinutes(props.filmLength)}</div>
+            <div>{props.filmLength ? (<>Продолжительность: {formatMinutes(props.filmLength)}</>):(<></>)}</div>
             <div className='flex gap-1'>
               <Genres genres={props.genres} />
             </div>

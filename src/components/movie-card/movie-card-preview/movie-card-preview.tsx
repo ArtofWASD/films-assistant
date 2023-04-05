@@ -17,17 +17,19 @@ interface MovieCardPreviewProps {
 const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
   return (
     <>
-      <section className='movie-card border-2 rounded-xl py-4 px-3 bg-cyan-300 bg-opacity-10'>
+      <section className='movie-card border-2 rounded-xl p-2 border-slate-300'>
         <div className='grid grid-flow-col justify-start gap-4'>
-          <div className='w-full'>
+          <div>
             <Image
               src={props.posterUrl}
               alt={props.nameRu}
-              width={100}
-              height={150}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className='h-40 w-28'
             />
           </div>
-          <div className=''>
+          <div>
             <h2>
               {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}
             </h2>
