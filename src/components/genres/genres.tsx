@@ -1,7 +1,7 @@
-import React from 'react';
 interface GenresProps {
   genres: Array<string>;
 }
+
 const Genres: React.FC<GenresProps> = ({ genres }) => {
   return (
     <div className='flex gap-1'>

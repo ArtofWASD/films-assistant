@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Footer = () => {
   return (
     <footer className='bg-gradient-to-r from-red-500 via-purple-500 to-blue-500'>

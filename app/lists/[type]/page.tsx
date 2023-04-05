@@ -1,12 +1,13 @@
 import Link from 'next/link';
-import React from 'react';
 import MovieCardPreview from '../../../src/components/movie-card/movie-card-preview/movie-card-preview';
 import getLatestMovie from '../../../src/utils/handlers/getLatestMovie';
+
 interface TopsParams {
   params: {
     type:string;
   };
 }
+
 const Tops = async ({ params }: TopsParams) => {
   const query = await params.type.toUpperCase()
   const movieItem = await getLatestMovie(query, 1);  

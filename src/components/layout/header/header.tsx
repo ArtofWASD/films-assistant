@@ -1,7 +1,7 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MyInput from '../../../utils/ui/input';
+
 const Header = () => {
   return (
     <header className='bg-gradient-to-r from-red-500 via-purple-500 to-blue-500'>
