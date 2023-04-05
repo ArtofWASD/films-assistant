@@ -3,19 +3,19 @@ import React from 'react';
 
 const LeftMenu = () => {
   return (
-    <section className='border-2 rounded-xl pt-4 grid justify-center'>
+    <section className='pt-4 grid justify-center'>
       <ul>
-        <li className='font-semibold hover:text-orange-600 text-xl'>
-          <Link href='/tops/Film'>Фильмы</Link>
+        <li className='font-semibold hover:text-orange-600 text-xl hover:drop-shadow-xl'>
+          <Link href='/lists/film'>Фильмы</Link>
         </li>
-        <li className='font-semibold hover:text-orange-600 text-xl'>
-          <Link href='/tops/Tv_series'>Сериалы</Link>
+        <li className='font-semibold hover:text-orange-600 text-xl hover:drop-shadow-xl'>
+          <Link href='/lists/tv_series'>Сериалы</Link>
         </li>
-        <li className='font-semibold hover:text-orange-600 text-xl'>
-          <Link href='/tops/Mini_series'>Мини мериалы</Link>
+        <li className='font-semibold hover:text-orange-600 text-xl hover:drop-shadow-xl'>
+          <Link href='/lists/mini_series'>Мини мериалы</Link>
         </li>
-        <li className='font-semibold hover:text-orange-600 text-xl'>
-          <Link href='/tops/Tv_show'>Тв передачи</Link>
+        <li className='font-semibold hover:text-orange-600 text-xl hover:drop-shadow-xl'>
+          <Link href='/lists/tv_show'>Тв передачи</Link>
         </li>
       </ul>
     </section>
