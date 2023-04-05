@@ -5,29 +5,22 @@ import Pagination from '../../../src/components/pagination/pagination';
 import getLatestMovie from '../../../src/utils/handlers/getLatestMovie';
 interface TopsParams {
   params: {
-    topsType: string;
+    topsType:string;
   };
 }
 const Tops = async ({ params }: TopsParams) => {
-  const query = await params.topsType.toUpperCase();
-  const movieItem = await getLatestMovie(query, 1);
+  const query = await params.topsType.toUpperCase()
+  const movieItem = await getLatestMovie(query, 1);  
   return (
     <section>
       <div className='grid grid-cols-2 gap-4'>
-        {movieItem?.items.map((movie: any) => (
-          <Link href={`/film/${movie.kinopoiskId}`} key={movie.kinopoiskId}>
+        {movieItem?.items?.map((movie: any) => (
+          <Link href={`tops/${params.topsType}/${movie.kinopoiskId}`} key={movie.kinopoiskId}>
             <div>
               <MovieCardPreview props={movie} />
             </div>
           </Link>
         ))}
-      </div>
-      <div className='pb-16 pt-4'>
-        <Pagination
-          currentPage={1}
-          totalPages={movieItem.totalPages}
-          filmType={query}
-        />
       </div>
     </section>
   );
