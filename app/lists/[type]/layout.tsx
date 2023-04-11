@@ -1,3 +1,5 @@
+import Button from '../../../src/utils/ui/button';
+
 interface topsLayoutProps {
   children: React.ReactNode;
   params: {
@@ -26,7 +28,11 @@ const TopsLayout: React.FC<topsLayoutProps> = ({ children, params }) => {
 
   return (
     <section className='grid justify-items-center'>
-      <h1 className='py-4'>Новинки {type}</h1>
+      <div className='grid grid-cols-12 items-center w-screen'>
+        <h1 className='py-4 col-start-6 col-span-2'>Новинки {type}</h1> 
+        <div className='col-start-12'><Button /></div>
+      </div>
+
       {children}
     </section>
   );

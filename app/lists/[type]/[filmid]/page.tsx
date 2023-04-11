@@ -13,12 +13,16 @@ const FilmPage = async ({ params }: FilmPageParams) => {
   const item = await getMovie(params.filmid);
   const actorsList = await getActorsByFilmId(params.filmid);
   
+  const filteredActorList = await actorsList.filter((actor:any) => {
+    return actor.professionKey === 'ACTOR'
+  })
+
   return (
     <>
-      <Tabs film={<MovieCard props={item} />} actors={<ActrosList actors={actorsList}/>}/>
-      <div>
-        <Button />
-      </div>
+      <Tabs
+        film={<MovieCard props={item} />}
+        actors={<ActrosList actors={filteredActorList} />}
+      />
     </>
   );
 };

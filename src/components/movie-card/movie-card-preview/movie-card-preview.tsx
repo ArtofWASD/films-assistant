@@ -17,7 +17,7 @@ interface MovieCardPreviewProps {
 const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
   return (
     <>
-      <section className='movie-card border-2 rounded-xl p-2 border-slate-300'>
+      <section className='movie-card rounded-xl p-2 hover:shadow-xl'>
         <div className='grid grid-flow-col justify-start gap-4'>
           <div>
             <Image

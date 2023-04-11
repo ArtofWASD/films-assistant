@@ -17,6 +17,7 @@ interface MovieCardProps {
     genres: [string];
   };
 }
+
 const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
   return (
     <>
