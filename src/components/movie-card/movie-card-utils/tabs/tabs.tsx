@@ -17,7 +17,7 @@ const Tabs = ({ film, actors, awards }: any) => {
                 'w-full py-2.5 text-md font-medium leading-5 text-blue-700 px-5',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
                 selected
-                  ? 'bg-white shadow'
+                  ? 'bg-white shadow border-b-2'
                   : 'text-blue-100  hover:text-orange-500'
               )
             }
@@ -30,12 +30,12 @@ const Tabs = ({ film, actors, awards }: any) => {
                 'w-full py-2.5 text-md font-medium leading-5 text-blue-700 px-5',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
                 selected
-                  ? 'bg-white shadow'
+                  ? 'bg-white shadow border-b-2'
                   : 'text-blue-100  hover:text-orange-500'
               )
             }
           >
-            Актёры
+            Актёры и Режисёры
           </Tab>
           <Tab
             className={({ selected }) =>
@@ -43,7 +43,7 @@ const Tabs = ({ film, actors, awards }: any) => {
                 'w-full py-2.5 text-md font-medium leading-5 text-blue-700 px-5',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
                 selected
-                  ? 'bg-white shadow'
+                  ? 'bg-white shadow border-b-2'
                   : 'text-blue-100 hover:text-orange-500'
               )
             }

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import formatMinutes from '../../utils/handlers/movieLenghtFormatHandler';
-import Genres from '../genres/genres';
-import Rating from '../rating/rating';
+import Genres from './movie-card-utils/genres/genres';
+import Rating from './movie-card-utils/rating/rating';
 
 interface MovieCardProps {
   props: {
