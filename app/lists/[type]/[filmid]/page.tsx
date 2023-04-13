@@ -23,7 +23,7 @@ const FilmPage = async ({ params }: FilmPageParams) => {
     <>
       <Tabs
         film={<MovieCard props={item} />}
-        actors={<ActrosList actors={filteredActorList} director={filteredDirectorList} />}
+        actors={<ActrosList actors={filteredActorList} director={filteredDirectorList} params={params} />}
       />
     </>
   );
