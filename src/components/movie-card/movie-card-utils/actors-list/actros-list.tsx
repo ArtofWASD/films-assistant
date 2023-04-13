@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import ActorCard from '../movie-card/movie-card-utils/actor-card/actor-card';
+import ActorCard from '../actor-card/actor-card';
+
 interface ActrosListProps {
   staffId: number;
   nameRu: string;

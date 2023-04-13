@@ -24,7 +24,7 @@ const ActorPage = async ({ params }: ActorPageProps) => {
           <Image src={actor.posterUrl} alt={actor.nameRu} width={40} height={50} />
           <p>Фильмография:</p>
           <div className="overflow-scroll h-96 w-full">              
-              {actor.films.map((item:FilmsProps) => (
+              {actor.films?.map((item:FilmsProps) => (
                       <div key={item.filmId} className="flex">
                           <p>{item.nameRu}{item.nameEn}</p>
                           <p>{item.description}</p>
