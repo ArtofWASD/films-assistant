@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { Tab } from '@headlessui/react';
 
 const Tabs = ({ film, actors, awards }: any) => {
