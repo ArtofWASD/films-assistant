@@ -12,12 +12,13 @@ const LeftMenu = () => {
   return (
     <>
       <button
-        className='block text-white rounded-md relative pl-2 font-semibold'
+        className='block text-white rounded-md relative pl-3 font-semibold'
         onClick={handleToggle}
       >
         Меню
       </button>
-      <ul className={`${isOpen ? 'block mt-4' : 'hidden'} flex flex-col w-full absolute py-4 bg-slate-200 md:bg-transparent rounded-b-lg`}>
+      <div className={`${isOpen ? 'backdrop-blur-sm absolute h-screen w-screen mt-4 ' : 'hidden'}`} />
+      <ul className={`${isOpen ? 'block mt-4' : 'hidden'} flex flex-col w-48 absolute py-4 bg-slate-100 h-screen rounded-b-lg `}>
         <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
           <Link href='/lists/film' onClick={handleToggle}>Фильмы</Link>
         </li>
