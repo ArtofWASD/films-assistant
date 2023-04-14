@@ -21,11 +21,11 @@ interface MovieCardProps {
 const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
   return (
     <>
-      <section className='movie-card grid justify-items-center'>
+      <section className='movie-card grid'>
         <h1 className='movie-title py-4'>
           {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}
         </h1>
-        <div className='grid grid-flow-col justify-between px-24 gap-4'>
+        <div className='grid grid-cols-2 justify-center'>
           <div className='movie-card_image'>
             <Image
               src={props.posterUrl}

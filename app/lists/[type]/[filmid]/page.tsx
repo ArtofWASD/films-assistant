@@ -24,7 +24,7 @@ const FilmPage = async ({ params }: FilmPageParams) => {
   });
 
   return (
-    <>
+    <div className="my-16">
       <Tabs
         film={<MovieCard props={item} />}
         actors={
@@ -36,7 +36,7 @@ const FilmPage = async ({ params }: FilmPageParams) => {
         }
         awards={<AwardsList awards={awardsList} />}
       />
-    </>
+    </div>
   );
 };
 export default FilmPage;
