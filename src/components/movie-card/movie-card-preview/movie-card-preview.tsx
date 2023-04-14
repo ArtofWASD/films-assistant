@@ -30,7 +30,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
             />
           </div>
           <div>
-            <h2 className="text-sm md:text-base font-semibold">
+            <h2 className="text-sm md:text-base font-semibold whitespace-normal">
               {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}
             </h2>
             <div className='flex gap-1 text-xs md:text-base '>
