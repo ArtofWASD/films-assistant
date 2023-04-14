@@ -6,6 +6,7 @@ import { useState } from 'react';
 const LeftMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
@@ -32,7 +33,7 @@ const LeftMenu = () => {
       <ul
         className={`${
           isOpen ? 'block mt-3' : 'hidden'
-        } flex flex-col w-full md:w-96 absolute py-4 bg-gradient-to-r from-slate-300 to bg-transparent h-screen`}
+        } flex flex-col w-full md:w-96 absolute py-4 bg-gradient-to-r from-slate-300 to bg-transparent h-screen gap-2`}
         onClick={handleToggle}>
         <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
           <Link href='/lists/film' onClick={handleToggle}>
@@ -52,6 +53,11 @@ const LeftMenu = () => {
         <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
           <Link href='/lists/tv_show' onClick={handleToggle}>
             Тв сериалы
+          </Link>
+        </li>
+        <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
+          <Link href='/' onClick={handleToggle}>
+            На главную
           </Link>
         </li>
       </ul>

@@ -9,11 +9,6 @@ const Header = () => {
         <span>
           <LeftMenu/>
         </span>
-        <span>
-          <Link href='/'>
-            <Image src='/images/cinema.png' alt='logo' width={40} height={40} />
-          </Link>
-        </span>
         <ul className='flex gap-2 pr-3'>
           <Link href='/profile'>
             <li className='hover:text-amber-300 cursor-pointer text-white font-semibold'>
