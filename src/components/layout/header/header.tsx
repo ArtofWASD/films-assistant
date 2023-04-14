@@ -1,18 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import MyInput from '../../../utils/ui/input';
+import LeftMenu from '../../left-menu/left-menu';
 
 const Header = () => {
   return (
     <header className='bg-gradient-to-r from-zinc-800 to-blue-500'>
-      <nav className='flex justify-between items-center py-2 px-4'>
+      <nav className='flex justify-between items-center py-2'>
+        <span>
+          <LeftMenu/>
+        </span>
         <span className=''>
           <Link href='/'>
-            <Image src='/images/cinema.png' alt='logo' width={130} height={35} />
+            <Image src='/images/cinema.png' alt='logo' width={40} height={40} />
           </Link>
         </span>
-        <span> <MyInput/></span>
-        <ul className='flex gap-2'>
+        <ul className='flex gap-2 pr-2'>
           <Link href='/profile'>
             <li className='hover:text-amber-300 cursor-pointer text-white font-semibold'>
               Личный кабинет

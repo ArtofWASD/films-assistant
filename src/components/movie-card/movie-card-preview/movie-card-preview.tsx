@@ -26,7 +26,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
               width={0}
               height={0}
               sizes="100vw"
-              className='h-40 w-28'
+              className='md:h-40 md:w-28 h-24 w-16'
             />
           </div>
           <div>
