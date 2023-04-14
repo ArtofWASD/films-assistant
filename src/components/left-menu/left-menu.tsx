@@ -45,12 +45,9 @@ const LeftMenu = () => {
           isOpen ? 'backdrop-blur-sm absolute h-screen w-screen bg-gradient-to-r from-slate-300 to bg-transparent mt-2' : 'hidden'
         }`}
         onClick={handleToggle}
-        animate={isOpen ? "open" : "closed"}
-        variants={variants}
+
       />
       <motion.div
-      animate={isOpen ? "open" : "closed"}
-      variants={variants}
       >
         <ul
           className={`${
