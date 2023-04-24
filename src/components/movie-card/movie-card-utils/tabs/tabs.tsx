@@ -9,7 +9,7 @@ const Tabs = ({ film, actors, awards }: any) => {
   return (
     <>
       <Tab.Group>
-        <Tab.List className='grid grid-flow-col bg-grey-500 px-1 py-2'>
+        <Tab.List className='grid grid-flow-col justify-center bg-grey-500 px-1 py-2'>
           <Tab
             className={({ selected }) =>
               classNames(

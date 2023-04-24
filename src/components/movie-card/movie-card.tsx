@@ -25,7 +25,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
         <h1 className='movie-title py-4'>
           {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}
         </h1>
-        <div className='grid md:grid-cols-2 justify-center justify-items-center gap-2'>
+        <div className='grid grid-cols-1 md:grid-cols-[20%_80%] md:px-28 justify-items-center gap-2'>
           <div className='movie-card_image'>
             <Image
               src={props.posterUrl}

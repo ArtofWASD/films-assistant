@@ -29,7 +29,7 @@ const ActorCard = ({ item }: ActorCardProps) => {
             {item.nameRu}
             <p className='text-sm text-slate-500'>{item.nameEn}</p>
           </p>
-          <p className=' text-slate-500'>{item.description}</p>
+          <p className='text-sm text-slate-500 break-words'>{item.description}</p>
         </div>
       </div>
     </div>
