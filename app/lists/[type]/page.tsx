@@ -30,8 +30,8 @@ const Tops = async ({ params }: TopsParams) => {
 
   return (
     <div>
-      <h1 className='py-4 col-start-6 col-span-2 text-center'>Новинки {type}</h1>
-      <div className='grid md:grid-cols-2 gap-2 pb-20 px-1'>
+      <h1 className='py-4 col-start-6 col-span-2 text-center mt-12'>Новинки {type}</h1>
+      <div className='grid md:grid-cols-2 gap-4 pb-20 px-5 md:px-1'>
         {movieItem.items?.map((movie: any) => (
           <Link
             href={`lists/${params.type}/${movie.kinopoiskId}`}

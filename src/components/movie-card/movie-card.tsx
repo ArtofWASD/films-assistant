@@ -21,11 +21,11 @@ interface MovieCardProps {
 const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
   return (
     <>
-      <section className='movie-card grid'>
+      <section className='movie-card grid justify-items-center'>
         <h1 className='movie-title py-4'>
           {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}
         </h1>
-        <div className='grid grid-cols-2 justify-center'>
+        <div className='grid md:grid-cols-2 justify-center justify-items-center gap-2'>
           <div className='movie-card_image'>
             <Image
               src={props.posterUrl}
@@ -34,10 +34,10 @@ const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
               height={100}
             />
           </div>
-          <div className='movie-card_description'>
-            <div>{props.description}</div>
-            <div>{props.filmLength ? (<>Продолжительность: {formatMinutes(props.filmLength)}</>):(<></>)}</div>
-            <div className='flex gap-1'>
+          <div className='movie-card_description px-4'>
+            <div className='md:border-0 border-b-2 py-2'>{props.description}</div>
+            <div className='flex md:border-0 border-b-2 py-2'>{props.filmLength ? (<><p className='font-semibold'>Продолжительность</p>: {formatMinutes(props.filmLength)}</>):(<></>)}</div>
+            <div className='flex gap-1 md:border-0 border-b-2 py-2'>
               <Genres genres={props.genres} />
             </div>
             <div className='movie-card_rating flex gap-2 py-2'>
