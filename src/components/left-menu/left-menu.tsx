@@ -70,7 +70,7 @@ const LeftMenu = () => {
               Мини сериалы
             </Link>
           </li>
-          <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
+          <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'> 
             <Link href='/lists/tv_show' onClick={handleToggle}>
               Тв сериалы
             </Link>
