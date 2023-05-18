@@ -5,6 +5,7 @@ import Rating from '../movie-card-utils/rating/rating';
 interface MovieCardPreviewProps {
   props: {
     nameRu: string;
+    nameEn:string;
     nameOriginal?: string;
     posterUrl: string;
     year: number;
@@ -22,7 +23,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
           <div>
             <Image
               src={props.posterUrl}
-              alt={props.nameRu}
+              alt={props.nameRu? props.nameRu:props.nameEn}
               width={0}
               height={0}
               sizes="100vw"

@@ -19,12 +19,10 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav>
-      <ul className='pagination flex gap-2 justify-center'>
+      <ul className='pagination flex gap-2 justify-center pb-10'>
         {prevPage > 0 && (
           <li className='page-item'>
-            <Link href={`/tops/${filmType}?page=${prevPage}`}>
-              <p className='page-link'>Previous</p>
-            </Link>
+            <p className='page-link'>Previous</p>
           </li>
         )}
 
@@ -33,20 +31,22 @@ const Pagination: React.FC<PaginationProps> = ({
             key={page}
             className={`page-item${currentPage === page ? ' active' : ''}`}
           >
-            <Link
-              href={`/tops/${filmType}?page=${page}`}
-              onClick={() => {
-                getLatestMovie(filmType, page);
-              }}
-            >
-              <p className='page-link'>{page}</p>
+            <Link href={`/lists/${filmType}/${page}`}>
+              <p
+                className='page-link cursor-pointer'
+                onClick={() => {
+                  getLatestMovie(filmType, page);
+                }}
+              >
+                {page}
+              </p>
             </Link>
           </li>
         ))}
 
         {nextPage <= totalPages && (
           <li className='page-item'>
-            <Link href={`/tops/${filmType}?page=${nextPage}`}>
+            <Link href={`/lists/${filmType}/${nextPage}`}>
               <p className='page-link'>Next</p>
             </Link>
           </li>

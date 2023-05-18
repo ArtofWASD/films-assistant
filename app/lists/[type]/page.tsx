@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import MovieCardPreview from '../../../src/components/movie-card/movie-card-preview/movie-card-preview';
+import Pagination from '../../../src/components/pagination/pagination';
 import getLatestMovie from '../../../src/utils/handlers/getLatestMovie';
 interface TopsParams {
   params: {
@@ -10,6 +11,7 @@ interface TopsParams {
 const Tops = async ({ params }: TopsParams) => {
   const query = await params.type.toUpperCase();
   const movieItem = await getLatestMovie(query, 1);
+  
   let type = '';
   switch (params.type) {
     case 'tv_series':
@@ -41,6 +43,10 @@ const Tops = async ({ params }: TopsParams) => {
           </Link>
         ))}
       </div>
+      <div className="pb-10">
+      <Pagination totalPages={movieItem.totalPages} filmType={query} currentPage={1} />
+      </div>
+      
     </div>
   );
 };
