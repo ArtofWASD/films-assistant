@@ -8,9 +8,11 @@ interface TopsParams {
   };
 }
 
-const Tops = async ({ params }: TopsParams) => {
+const Tops = async ({ params }: TopsParams, searchParams:any) => {
   const query = await params.type.toUpperCase();
   const movieItem = await getLatestMovie(query, 1);
+  console.log(searchParams);
+  
   
   let type = '';
   switch (params.type) {

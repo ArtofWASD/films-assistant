@@ -31,7 +31,7 @@ const Pagination: React.FC<PaginationProps> = ({
             key={page}
             className={`page-item${currentPage === page ? ' active' : ''}`}
           >
-            <Link href={`/lists/${filmType}/${page}`}>
+            <Link href={`/lists/${filmType}?page=${page}`}>
               <p
                 className='page-link cursor-pointer'
                 onClick={() => {
