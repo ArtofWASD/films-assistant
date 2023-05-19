@@ -5,14 +5,17 @@ import getLatestMovie from '../../../src/utils/handlers/getLatestMovie';
 interface TopsParams {
   params: {
     type: string;
-  };
+  },
+  searchParams: {
+    page: number;
+  }
 }
 
-const Tops = async ({ params }: TopsParams, searchParams:any) => {
+const Tops = async ({ params, searchParams }: TopsParams) => {
   const query = await params.type.toUpperCase();
-  const movieItem = await getLatestMovie(query, 1);
-  console.log(searchParams);
-  
+
+  let movieItem:any = ''
+  searchParams.page === undefined ? movieItem = await getLatestMovie(query, 1):movieItem = await getLatestMovie(query, searchParams.page);
   
   let type = '';
   switch (params.type) {
@@ -46,7 +49,7 @@ const Tops = async ({ params }: TopsParams, searchParams:any) => {
         ))}
       </div>
       <div className="pb-10">
-      <Pagination totalPages={movieItem.totalPages} filmType={query} currentPage={1} />
+        <Pagination totalPages={movieItem.totalPages} filmType={query} currentPage={1} type={params.type}/>
       </div>
       
     </div>

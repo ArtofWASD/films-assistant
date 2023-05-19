@@ -5,13 +5,15 @@ import getLatestMovie from '../../utils/handlers/getLatestMovie';
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  filmType: string;
+  filmType?: string;
+  type?: string;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   filmType,
+  type,
 }) => {
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
@@ -31,11 +33,11 @@ const Pagination: React.FC<PaginationProps> = ({
             key={page}
             className={`page-item${currentPage === page ? ' active' : ''}`}
           >
-            <Link href={`/lists/${filmType}?page=${page}`}>
+            <Link href={`/lists/${type}?page=${page}`}>
               <p
                 className='page-link cursor-pointer'
                 onClick={() => {
-                  getLatestMovie(filmType, page);
+                  console.log('onclick');
                 }}
               >
                 {page}
@@ -46,7 +48,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
         {nextPage <= totalPages && (
           <li className='page-item'>
-            <Link href={`/lists/${filmType}/${nextPage}`}>
+            <Link href={`/lists/${type}?page=${nextPage}`}>
               <p className='page-link'>Next</p>
             </Link>
           </li>
