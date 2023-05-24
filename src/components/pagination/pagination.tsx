@@ -1,7 +1,5 @@
 'use client';
 import Link from 'next/link';
-import getLatestMovie from '../../utils/handlers/getLatestMovie';
-
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -12,13 +10,12 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
-  filmType,
   type,
 }) => {
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-
+  console.log(currentPage);  
   return (
     <nav>
       <ul className='pagination flex gap-2 justify-center pb-10'>
@@ -31,13 +28,13 @@ const Pagination: React.FC<PaginationProps> = ({
         {pages.map(page => (
           <li
             key={page}
-            className={`page-item${currentPage === page ? ' active' : ''}`}
+            className={`page-item${currentPage == page ? 'font-semibold' : ''}`}
           >
             <Link href={`/lists/${type}?page=${page}`}>
               <p
                 className='page-link cursor-pointer'
                 onClick={() => {
-                  console.log('onclick');
+                  window.scrollTo(0,0)
                 }}
               >
                 {page}

@@ -49,7 +49,7 @@ const Tops = async ({ params, searchParams }: TopsParams) => {
         ))}
       </div>
       <div className="pb-10">
-        <Pagination totalPages={movieItem.totalPages} filmType={query} currentPage={1} type={params.type}/>
+        <Pagination totalPages={movieItem.totalPages} filmType={query} currentPage={searchParams.page} type={params.type}/>
       </div>
       
     </div>
