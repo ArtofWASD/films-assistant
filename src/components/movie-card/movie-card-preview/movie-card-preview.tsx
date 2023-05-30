@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Genres from '../movie-card-utils/genres/genres';
@@ -6,8 +6,9 @@ import Rating from '../movie-card-utils/rating/rating';
 
 interface MovieCardPreviewProps {
   props: {
+    key?: string;
     nameRu: string;
-    nameEn:string;
+    nameEn: string;
     nameOriginal?: string;
     posterUrl: string;
     year: number;
@@ -16,52 +17,71 @@ interface MovieCardPreviewProps {
     ratingImdb: number;
     genres: Array<string>;
   };
+  isHovered?: any;
 }
-const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
+const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({
+  props,
+  isHovered,
+}) => {
   const cardMotion = {
     rest: {
       x: 0,
+      paggingRight:0,
+      opacity: isHovered ? 1 : 0.8, // Обновлено условие для определения прозрачности
       transition: {
-        type: "tween",
-        ease: "easeIn"
-      }
+        type: 'tween',
+        ease: 'easeIn',
+      },
     },
     hover: {
+      scale:1.2,
+      paggingRight:300,
+      opacity: 1,
       transition: {
-        duration: 0.4,
-        type: "tween",
-        ease: "easeOut"
-      }
-    }
+        duration: 0.2,
+        type: 'tween',
+        ease: 'easeOut',
+      },
+    },
   };
   const descriptionMotion = {
-    rest: { opacity: 0, ease: "easeOut", duration: 0.4, type: "tween" },
-    hover: {
-      opacity: 1,
-      x:10,
+    rest: {
+      x:-100,
+      opacity: 0,
       transition: {
-        duration: 0.4,
-        type: "tween",
-        ease: "easeIn"
-      }
-    }
+        type: 'tween',
+        ease: 'easeIn',
+      },
+    },
+    hover: {
+      x:0,
+      opacity: isHovered ? 1 : 0.8,
+      transition: {
+        duration: 0.2,
+        type: 'tween',
+        ease: 'easeOut',
+      },
+    },
   };
   return (
     <>
-      <section className='movie-card rounded-xl p-2 hover:shadow-xl'>
-        <motion.div className='grid grid-flow-col justify-start gap-4' initial="rest" whileHover="hover" animate="rest">
-          <motion.div variants={cardMotion}>
-            <Image
-              src={props.posterUrl}
-              alt={props.nameRu? props.nameRu:props.nameEn}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className='md:h-72 md:w-48 h-24 w-16 '
-            />
-          </motion.div>
+      <motion.div
+        className='movie-card justify-start gap-4  rounded-xl'
+        initial='rest'
+        whileHover='hover'
+        animate={isHovered ? 'hover' : 'rest'}
+      >
+        <motion.div variants={cardMotion} className="flex">
+          <Image
+            src={props.posterUrl}
+            alt={props.nameRu ? props.nameRu : props.nameEn}
+            width={0}
+            height={0}
+            sizes='100vw'
+            className='md:h-72 md:w-48 h-24 w-16'
+          />
           <motion.div variants={descriptionMotion}>
-            <h2 className="text-md md:text-base font-semibold whitespace-normal">
+            <h2 className='text-md md:text-base font-semibold whitespace-normal'>
               {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}
             </h2>
             <div className='flex gap-1 text-sm md:text-base '>
@@ -93,7 +113,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
             </div>
           </motion.div>
         </motion.div>
-      </section>
+      </motion.div>
     </>
   );
 };
