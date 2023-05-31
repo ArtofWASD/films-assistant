@@ -39,7 +39,7 @@ const Tops = async ({ params, searchParams }: TopsParams) => {
     <div>
       <h1 className='py-4 text-center mt-12'>Новинки {type}</h1>
       <div className='flex flex-nowrap justify-center gap-4 pb-20 px-5 md:px-1'>
-        {movieItem.items?.map((movie: any) => (
+        {movieItem?.items?.map((movie: any) => (
           <Link
             href={`lists/${params.type}/${movie.kinopoiskId}`}
             key={movie.kinopoiskId}
@@ -49,7 +49,7 @@ const Tops = async ({ params, searchParams }: TopsParams) => {
         ))}
       </div>
       <div className="pb-10">
-        <Pagination totalPages={movieItem.totalPages} filmType={query} currentPage={searchParams.page} type={params.type}/>
+        <Pagination totalPages={movieItem?.totalPages} filmType={query} currentPage={searchParams.page} type={params.type}/>
       </div>
       
     </div>
