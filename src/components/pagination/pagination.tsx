@@ -15,7 +15,6 @@ const Pagination: React.FC<PaginationProps> = ({
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-  console.log(currentPage);  
   return (
     <nav>
       <ul className='pagination flex gap-2 justify-center pb-10'>
@@ -34,7 +33,7 @@ const Pagination: React.FC<PaginationProps> = ({
               <p
                 className='page-link cursor-pointer'
                 onClick={() => {
-                  window.scrollTo(0,0)
+                  window.scrollTo(0, 0);
                 }}
               >
                 {page}
