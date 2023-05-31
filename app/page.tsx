@@ -3,27 +3,32 @@ import getFilmsReleases from '../src/utils/handlers/getFilmsRealese';
 import getLatestMovie from '../src/utils/handlers/getLatestMovie';
 
 const Page = async () => {
-
   const newRealases = await getFilmsReleases();
-  const filtredNewRealases = await newRealases.releases.slice(0,5)
+  const filtredNewRealases = await newRealases?.releases?.slice(0, 7);
   const newFilms = await getLatestMovie('FILM', 1);
-  console.log(filtredNewRealases);
+  const filteredFilms = newFilms?.items?.slice(0, 7);
   
   return (
     <main className='flex flex-col justify-items-cente'>
       <h1 className='text-center mt-16 pb-4 '>
         Кинотаймер. Твой личный кинокалендарь!
       </h1>
-      <div className='flex flex-wrap justify-center gap-10 px-5 md:px-1 py-10 bg-slate-300 bg-opacity-30 '>
-        {filtredNewRealases.map((item: any) => (
-          <MovieCardPreview props={item} key={item.id} />
-        ))}
-      </div>
-      {/* <div className='flex flex-wrap justify-center gap-10 px-5 md:px-1 py-4 bg-amber-300 bg-opacity-30 pb-20'>
-      {newFilms.items?.map((item: any) => (
-          <MovieCardPreview props={item} key={item.id} />
-        ))}
-      </div> */}
+      <section className='bg-slate-300 bg-opacity-30'>
+        <p className='text-center pt-4 font-semibold text-xl'>Цифровые релизы</p>
+        <div className='flex flex-nowrap flex-col md:flex-row justify-center gap-6 px-5 md:px-1 py-4'>
+          {filtredNewRealases?.map((item: any) => (
+            <MovieCardPreview props={item} key={item.id} />
+          ))}
+        </div>
+      </section>
+      <section className='bg-amber-300 bg-opacity-30'>
+        <p className='text-center pt-4 font-semibold text-xl'>Новинки кино</p>
+        <div className='flex flex-nowrap flex-col md:flex-row justify-center gap-6 px-5 md:px-1 py-4'>
+          {filteredFilms?.map((item: any) => (
+            <MovieCardPreview props={item} key={item.id} />
+          ))}
+        </div>
+      </section>
     </main>
   );
 };

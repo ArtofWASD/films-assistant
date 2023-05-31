@@ -7,10 +7,9 @@ import Rating from '../movie-card-utils/rating/rating';
 interface MovieCardPreviewProps {
   props: {
     filmId: string;
-    key?: string;
+    key: string;
     nameRu: string;
     nameEn: string;
-    nameOriginal?: string;
     posterUrl: string;
     year: number;
     filmLength: number;
@@ -33,7 +32,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
   return (
     <>
       <section
-        className='flex shrink-0 transition ease-in-out hover:translate-x-6 hover:scale-110 duration-500'
+        className='flex shrink transition ease-in-out hover:translate-x-6 hover:scale-110 duration-500 py-2'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         key={props.key}
@@ -44,12 +43,12 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
           width={0}
           height={0}
           sizes='100vw'
-          className='md:h-56 md:w-36 h-24 w-16 rounded-xl'
+          className='md:h-56 md:w-40 h-24 w-16 rounded-xl'
         />
         {isHovered && (
           <div className={`movie-card_description_${props.filmId} top-0 px-2 left-full w-80`}>
             <h2 className='text-md md:text-base font-semibold whitespace-normal'>
-              {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}
+              {props.nameRu ? <>{props.nameRu}</> : <>{props.nameEn}</>}
             </h2>
             <div className='flex gap-1 text-sm md:text-base '>
               <p className='font-semibold '>Год выпуска:</p>
