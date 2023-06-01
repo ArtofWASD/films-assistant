@@ -5,18 +5,20 @@ import getLatestMovie from '../../../src/utils/handlers/getLatestMovie';
 interface TopsParams {
   params: {
     type: string;
-  },
+  };
   searchParams: {
     page: number;
-  }
+  };
 }
 
 const Tops = async ({ params, searchParams }: TopsParams) => {
   const query = await params.type.toUpperCase();
 
-  let movieItem:any = ''
-  searchParams.page === undefined ? movieItem = await getLatestMovie(query, 1):movieItem = await getLatestMovie(query, searchParams.page);
-  
+  let movieItem: any = '';
+  searchParams.page === undefined
+    ? (movieItem = await getLatestMovie(query, 1))
+    : (movieItem = await getLatestMovie(query, searchParams.page));
+
   let type = '';
   switch (params.type) {
     case 'tv_series':
@@ -38,20 +40,21 @@ const Tops = async ({ params, searchParams }: TopsParams) => {
   return (
     <div>
       <h1 className='py-4 text-center mt-12'>Новинки {type}</h1>
-      <div className='flex flex-nowrap justify-center gap-4 pb-20 px-5 md:px-1'>
+      <div className='flex flex-wrap justify-center gap-4 pb-20 px-5 md:px-1'>
         {movieItem?.items?.map((movie: any) => (
-          <Link
-            href={`lists/${params.type}/${movie.kinopoiskId}`}
-            key={movie.kinopoiskId}
-          >
-            <MovieCardPreview props={movie} />
+          <Link href={`lists/${params.type}/${movie.kinopoiskId}`} key={movie.kinopoiskId}>
+            <MovieCardPreview props={movie} key={movie.kinopoiskId}/>
           </Link>
         ))}
       </div>
-      <div className="pb-10">
-        <Pagination totalPages={movieItem?.totalPages} filmType={query} currentPage={searchParams.page} type={params.type}/>
+      <div className='pb-10'>
+        <Pagination
+          totalPages={movieItem?.totalPages}
+          filmType={query}
+          currentPage={searchParams.page}
+          type={params.type}
+        />
       </div>
-      
     </div>
   );
 };

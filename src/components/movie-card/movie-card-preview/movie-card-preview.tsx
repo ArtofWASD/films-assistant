@@ -17,9 +17,10 @@ interface MovieCardPreviewProps {
     ratingImdb: number;
     genres: Array<string>;
   };
+  key: string;
 }
 
-const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
+const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props, key }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -35,7 +36,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props }) => {
         className='flex shrink transition ease-in-out hover:translate-x-6 hover:scale-110 duration-500 py-2'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        key={props.key}
+        key={key}
       >
         <Image
           src={props.posterUrl}

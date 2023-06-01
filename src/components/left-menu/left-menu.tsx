@@ -16,17 +16,17 @@ const LeftMenu = () => {
       x: 0,
       opacity: 1,
       transition: {
-        x: { stiffness: 1000, delay:0.5, velocity:-100 }
-      }
+        x: { stiffness: 1000, delay: 0.5, velocity: -100 },
+      },
     },
     closed: {
-      x:-200,
+      x: -200,
       opacity: 0,
       transition: {
-        x: { stiffness: 1000, delay:0.5 }
+        x: { stiffness: 1000, delay: 0.5 },
       },
-    }
-  }
+    },
+  };
   return (
     <>
       <Image
@@ -42,42 +42,42 @@ const LeftMenu = () => {
       />
       <motion.div
         className={`${
-          isOpen ? 'backdrop-blur-sm absolute h-screen w-screen bg-gradient-to-r from-slate-300 to bg-transparent mt-2' : 'hidden'
+          isOpen
+            ? 'backdrop-blur-sm absolute h-screen w-screen bg-gradient-to-r from-slate-300 to bg-transparent mt-2'
+            : 'hidden'
         }`}
         onClick={handleToggle}
-
       />
-      <motion.div
-      >
+      <motion.div>
         <ul
           className={`${
             isOpen ? 'block mt-2' : 'hidden'
           } flex flex-col w-full md:w-96 absolute py-4  h-screen gap-2`}
           onClick={handleToggle}
         >
-          <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
+          <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
+            <Link href='/' onClick={handleToggle}>
+              На главную
+            </Link>
+          </li>
+          <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
             <Link href='/lists/film' onClick={handleToggle}>
               Фильмы
             </Link>
           </li>
-          <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
+          <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
             <Link href='/lists/tv_series' onClick={handleToggle}>
               Сериалы
             </Link>
           </li>
-          <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
+          <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
             <Link href='/lists/mini_series' onClick={handleToggle}>
               Мини сериалы
             </Link>
           </li>
-          <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'> 
+          <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
             <Link href='/lists/tv_show' onClick={handleToggle}>
               Тв сериалы
-            </Link>
-          </li>
-          <li className='font-semibold hover:text-orange-600 text-md hover:drop-shadow-xl text-left pl-1'>
-            <Link href='/' onClick={handleToggle}>
-              На главную
             </Link>
           </li>
         </ul>
