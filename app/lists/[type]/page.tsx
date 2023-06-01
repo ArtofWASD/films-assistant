@@ -11,13 +11,8 @@ interface PageProps {
   };
 }
 
-const Tops = async ({
-  params,
-  searchParams,
-}: {
-  params: { type: string };
-  searchParams: { page: number };
-}) => {
+const Tops = async (props: PageProps) => {
+  const { params, searchParams } = props;
   const query = await params.type.toUpperCase();
   let movieItem: any = '';
   searchParams.page === undefined
