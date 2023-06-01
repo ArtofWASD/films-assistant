@@ -11,7 +11,13 @@ interface PageProps {
   };
 }
 
-const Tops = async ({ params, searchParams }: PageProps) => {
+const Tops = async ({
+  params,
+  searchParams,
+}: {
+  params: { type: string };
+  searchParams: { page: number };
+}) => {
   const query = await params.type.toUpperCase();
   let movieItem: any = '';
   searchParams.page === undefined
@@ -41,8 +47,11 @@ const Tops = async ({ params, searchParams }: PageProps) => {
       <h1 className='py-4 text-center mt-12'>Новинки {type}</h1>
       <div className='flex flex-wrap justify-center gap-4 pb-20 px-5 md:px-1'>
         {movieItem?.items?.map((movie: any) => (
-          <Link href={`lists/${params.type}/${movie.kinopoiskId}`} key={movie.kinopoiskId}>
-            <MovieCardPreview props={movie} key={movie.kinopoiskId}/>
+          <Link
+            href={`lists/${params.type}/${movie.kinopoiskId}`}
+            key={movie.kinopoiskId}
+          >
+            <MovieCardPreview props={movie} key={movie.kinopoiskId} />
           </Link>
         ))}
       </div>
