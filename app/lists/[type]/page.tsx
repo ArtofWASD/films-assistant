@@ -40,7 +40,7 @@ const Tops = async ({params, searchParams}:any) => {
   return (
     <div>
       <h1 className='py-4 text-center mt-12'>Новинки {type}</h1>
-      <div className='flex flex-wrap justify-center gap-4 pb-20 px-5 md:px-1'>
+      <div className='container flex flex-wrap justify-center gap-2 pb-20 px-5 md:px-1'>
         {movieItem?.items?.map((movie: any) => (
           <Link
             href={`lists/${params.type}/${movie.kinopoiskId}`}
@@ -54,7 +54,7 @@ const Tops = async ({params, searchParams}:any) => {
         <Pagination
           totalPages={movieItem?.totalPages}
           filmType={query}
-          currentPage={searchParams.page}
+          currentPage={searchParams?.page}
           type={params.type}
         />
       </div>
