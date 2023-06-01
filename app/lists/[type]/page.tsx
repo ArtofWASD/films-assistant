@@ -2,7 +2,7 @@ import Link from 'next/link';
 import MovieCardPreview from '../../../src/components/movie-card/movie-card-preview/movie-card-preview';
 import Pagination from '../../../src/components/pagination/pagination';
 import getLatestMovie from '../../../src/utils/handlers/getLatestMovie';
-interface TopsParams {
+interface PageProps {
   params: {
     type: string;
   };
@@ -11,9 +11,8 @@ interface TopsParams {
   };
 }
 
-const Tops = async ({ params, searchParams }: TopsParams) => {
+const Tops = async ({ params, searchParams }: PageProps) => {
   const query = await params.type.toUpperCase();
-
   let movieItem: any = '';
   searchParams.page === undefined
     ? (movieItem = await getLatestMovie(query, 1))
