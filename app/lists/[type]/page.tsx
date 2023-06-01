@@ -6,16 +6,16 @@ interface PageProps {
   params: {
     type: string;
   };
-  searchParams: {
+  searchParams?: {
     page: number;
   };
 }
 
-const Tops = async (props: PageProps) => {
-  const { params, searchParams } = props;
-  const query = await params.type.toUpperCase();
+const Tops = async ({params, searchParams}:any) => {
+ 
+  const query = await params?.type.toUpperCase();
   let movieItem: any = '';
-  searchParams.page === undefined
+  searchParams?.page === undefined
     ? (movieItem = await getLatestMovie(query, 1))
     : (movieItem = await getLatestMovie(query, searchParams.page));
 
