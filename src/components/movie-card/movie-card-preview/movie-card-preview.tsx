@@ -1,9 +1,7 @@
 'use client';
-import Image from 'next/image';
 import { useState } from 'react';
 import Genres from '../movie-card-utils/genres/genres';
 import Poster from '../movie-card-utils/poster/poster';
-import Rating from '../movie-card-utils/rating/rating';
 
 interface MovieCardPreviewProps {
   props: {
@@ -35,14 +33,12 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props, key }) => {
   return (
     <>
       <section
-        className='movie-card flex transition ease-in-out hover:translate-x-6 duration-1000 py-2'
+        className='movie-card flex transition ease-in-out duration-1000 py-2'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         key={key}
       >
-        <div>
           <Poster props={props} />
-        </div>
         <div
           className={
             isHovered

@@ -3,7 +3,7 @@ import Rating from '../rating/rating';
 
 const Poster = ({ props }: any) => {
   return (
-    <div>
+    <>
       <Image
         src={props.posterUrl}
         alt={props.nameRu ? props.nameRu : props.nameOriginal}
@@ -32,7 +32,7 @@ const Poster = ({ props }: any) => {
           <></>
         )}
       </div> */}
-    </div>
+    </>
   );
 };
 

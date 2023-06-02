@@ -11,13 +11,18 @@ interface PageProps {
   };
 }
 
-const Tops = async ({params, searchParams}:any) => {
- 
+const Tops = async ({ params, searchParams }: any) => {
   const query = await params?.type.toUpperCase();
   let movieItem: any = '';
   searchParams?.page === undefined
     ? (movieItem = await getLatestMovie(query, 1))
     : (movieItem = await getLatestMovie(query, searchParams.page));
+  const chunkSize = 4;
+  const chunkedArray = Array.from(
+    { length: Math.ceil(movieItem.items.length / chunkSize) },
+    (_, index) =>
+      movieItem.items.slice(index * chunkSize, index * chunkSize + chunkSize)
+  );
 
   let type = '';
   switch (params.type) {
@@ -40,14 +45,20 @@ const Tops = async ({params, searchParams}:any) => {
   return (
     <div>
       <h1 className='py-4 text-center mt-12'>Новинки {type}</h1>
-      <div className='container flex flex-wrap justify-center gap-2 pb-20 px-5 md:px-1'>
-        {movieItem?.items?.map((movie: any) => (
-          <Link
-            href={`lists/${params.type}/${movie.kinopoiskId}`}
-            key={movie.kinopoiskId}
-          >
-            <MovieCardPreview props={movie} key={movie.kinopoiskId} />
-          </Link>
+      <div className='flex justify-center gap-0 pb-20 px-5 md:px-1'>
+        {chunkedArray.map((chunk, index) => (
+          <div key={index}>
+            {chunk.map((element: any) => (
+              <div key={element.id} className='flex'> 
+                <Link
+                  href={`lists/${params.type}/${element.kinopoiskId}`}
+                  key={element.kinopoiskId}
+                >
+                  <MovieCardPreview props={element} key={element.kinopoiskId} />
+                </Link>
+              </div>
+            ))}
+          </div>
         ))}
       </div>
       <div className='pb-10'>
