@@ -23,7 +23,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav>
-      <ul className='pagination flex gap-4 justify-center pb-10 items-center'>
+      <ul className='pagination flex gap-3 justify-center pb-10 items-center'>
         {prevPage > 0 && (
           <li className='pagination-prev'>
             <Link href={`/lists/${type}?page=${prevPage}`}>
