@@ -12,7 +12,7 @@ const Poster = ({ props }: any) => {
         sizes='100vw'
         className='md:h-72 md:w-48 h-24 w-16 rounded-xl'
       />
-      <div className='movie-card_rating flex flex-col gap-2 z-10 bottom-2 right-0'>
+      {/* <div className='movie-card_rating flex flex-col gap-2 z-10 bottom-2 right-0'>
         {props.ratingKinopoisk ? (
           <Rating
             title='Кинопоиск'
@@ -31,7 +31,7 @@ const Poster = ({ props }: any) => {
         ) : (
           <></>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

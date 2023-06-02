@@ -41,7 +41,7 @@ const Pagination: React.FC<PaginationProps> = ({
         {pages.map(page => (
           <li
             key={page}
-            className={`pagination-items text-lg font-semibold text-slate-600 hover:scale-125 hover:-translate-y-2 transition-transform ${
+            className={`pagination-items text-xl font-semibold text-slate-600 hover:scale-125 hover:-translate-y-2 transition-transform ${
               currentPage == page ? ' text-orange-600' : ''
             }`}
           >
