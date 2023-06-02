@@ -1,5 +1,7 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -11,48 +13,54 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   type,
 }) => {
-
   if (currentPage === undefined) {
-    currentPage = 1
+    currentPage = 1;
   }
   const prevPage = Number(currentPage) - 1;
   const nextPage = Number(currentPage) + 1;
-  console.log(`Next ${nextPage}`);
-  console.log(`Current ${currentPage}`);
- 
+
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <nav>
-      <ul className='pagination flex gap-2 justify-center pb-10'>
+      <ul className='pagination flex gap-4 justify-center pb-10 items-center'>
         {prevPage > 0 && (
-          <li className='page-item'>
-          <Link href={`/lists/${type}?page=${prevPage}`}>
-            <p className='page-link'>Назад</p>
-          </Link>
-        </li>
+          <li className='pagination-prev'>
+            <Link href={`/lists/${type}?page=${prevPage}`}>
+            <Image
+                src={'/images/prew-arrow.png'}
+                alt={'next'}
+                width={0}
+                height={0}
+                sizes='100vw'
+                className='w-8 h-8 cursor-pointer hover:scale-125 hover:-translate-x-2 transition-transform'
+              />
+            </Link>
+          </li>
         )}
         {pages.map(page => (
           <li
             key={page}
-            className={`page-item text-md ${currentPage == page ? 'font-bold text-slate-600' : ''}`}
+            className={`pagination-items text-lg font-semibold text-slate-600 hover:scale-125 hover:-translate-y-2 transition-transform ${
+              currentPage == page ? ' text-orange-600' : ''
+            }`}
           >
             <Link href={`/lists/${type}?page=${page}`}>
-              <p
-                className='page-link cursor-pointer'
-                // onClick={() => {
-                //   window.scrollTo(0, 0);
-                // }}
-              >
-                {page}
-              </p>
+              <p className='page-link cursor-pointer'>{page}</p>
             </Link>
           </li>
         ))}
         {currentPage < pages.length && (
-          <li className='page-item'>
+          <li className='pagination-next'>
             <Link href={`/lists/${type}?page=${nextPage}`}>
-              <p className='page-link'>Вперёд</p>
+              <Image
+                src={'/images/next-arrow.png'}
+                alt={'next'}
+                width={0}
+                height={0}
+                sizes='100vw'
+                className='w-8 h-8 cursor-pointer hover:scale-125 hover:translate-x-2 transition-transform'
+              />
             </Link>
           </li>
         )}
