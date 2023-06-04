@@ -13,20 +13,13 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   type,
 }) => {
+
   if (currentPage === undefined) {
     currentPage = 1;
   }
   const prevPage = Number(currentPage) - 1;
   const nextPage = Number(currentPage) + 1;
-  console.log(`Next ${nextPage}`);
-  console.log(`Curr ${currentPage}`);
-
-  
-
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-  console.log(pages);
-  
-
   return (
     <nav>
       <ul className='pagination flex gap-3 justify-center pb-10 items-center'>
@@ -48,7 +41,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <li
             key={page}
             className={`pagination-items-${page} text-xl font-semibold text-slate-600 hover:scale-125 hover:-translate-y-2 transition-transform ${
-              currentPage == page ? ' text-orange-600' : ''
+              currentPage === page ? ' text-orange-600' : ''
             }`}
           >
             <Link href={`/lists/${type}?page=${page}`}>
