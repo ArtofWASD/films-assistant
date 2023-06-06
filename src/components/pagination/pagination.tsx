@@ -13,7 +13,6 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   type,
 }) => {
-
   if (currentPage === undefined) {
     currentPage = 1;
   }
@@ -26,7 +25,7 @@ const Pagination: React.FC<PaginationProps> = ({
         {prevPage > 0 && (
           <li className='pagination-prev'>
             <Link href={`/lists/${type}?page=${prevPage}`}>
-            <Image
+              <Image
                 src={'/images/prew-arrow.png'}
                 alt={'next'}
                 width={0}
@@ -40,9 +39,8 @@ const Pagination: React.FC<PaginationProps> = ({
         {pages.map(page => (
           <li
             key={page}
-            className={`pagination-items-${page} text-xl font-semibold text-slate-600 hover:scale-125 hover:-translate-y-2 transition-transform ${
-              currentPage === page ? ' text-orange-600' : ''
-            }`}
+            className={`pagination-items transition-transform text-xl font-semibold text-slate-600 hover:scale-125 hover:-translate-y-2 
+            ${currentPage === page ? 'text-orange-600 scale-125' : ''}`}
           >
             <Link href={`/lists/${type}?page=${page}`}>
               <p className='page-link cursor-pointer'>{page}</p>
