@@ -31,27 +31,26 @@ const SidebarMenu = () => {
               leaveFrom='transform scale-100 opacity-100'
               leaveTo='transform scale-95 opacity-0'
             >
-              <Popover.Overlay as='div' className="fixed inset-0 bg-black opacity-30 blur-lg" />
-              <Popover.Panel>
-                <div className='sidepanel-content pl-2 pt-14 bg-opacity-20 bg-slate-500 w-60'>
+              
+              <Popover.Panel className='sidepanel-content pl-2 pt-14 w-60 mt-1 bg-sky-600'>
+                <div >
                   <ul>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
+                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/'>На главную</Link>
                     </li>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
+                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/lists/film'>Фильмы</Link>
                     </li>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
+                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/lists/tv_series'>Сериалы</Link>
                     </li>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
+                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/lists/mini_series'>Мини сериалы</Link>
                     </li>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
+                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/lists/tv_show'>Тв сериалы</Link>
                     </li>
                   </ul>
-                  <Popover.Button className=''>Закрыть</Popover.Button>
                 </div>
               </Popover.Panel>
             </Transition>
