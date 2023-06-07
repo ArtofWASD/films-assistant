@@ -40,11 +40,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props, key }) => {
       >
           <Poster props={props} />
         <div
-          className={
-            isHovered
-              ? 'movie-card_description top-0 px-2 left-full w-80 opacity-100 transition duration-1000'
-              : 'movie-card_description top-0 px-2 left-full w-0 opacity-0'
-          }
+          className='movie-card_description top-0 px-2 left-full w-full opacity-100 transition duration-1000'
         >
           <h2 className='movie-card_name text-md md:text-base font-semibold whitespace-normal'>
             {props.nameRu ? <>{props.nameRu}</> : <>{props.nameOriginal}</>}

@@ -10,23 +10,7 @@ const LeftMenu = () => {
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
-
-  const variants = {
-    open: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        x: { stiffness: 1000, delay: 0.5, velocity: -100 },
-      },
-    },
-    closed: {
-      x: -200,
-      opacity: 0,
-      transition: {
-        x: { stiffness: 1000, delay: 0.5 },
-      },
-    },
-  };
+  
   return (
     <>
       <Image

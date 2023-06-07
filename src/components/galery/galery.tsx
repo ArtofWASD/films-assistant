@@ -34,7 +34,7 @@ const Galery = ({ images }: any) => {
     <>
       <div
         key={currentImage.nameOriginal}
-        className='flex justify-center flex-col bg-slate-400 py-2 h-96'
+        className='flex justify-center flex-col bg-slate-400 bg-opacity-20 py-2 h-96'
       >
         <motion.div
           className='image-gallery flex px-64 '

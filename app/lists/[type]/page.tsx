@@ -13,16 +13,10 @@ interface PageProps {
 
 const Tops = async ({ params, searchParams }: any) => {
   const query = await params?.type.toUpperCase();
-  let movieItem: any = '';
+  let movieItem: any='';
   searchParams?.page === undefined
     ? (movieItem = await getLatestMovie(query, 1))
     : (movieItem = await getLatestMovie(query, searchParams.page));
-  const chunkSize = 4;
-  const chunkedArray = Array.from(
-    { length: Math.ceil(movieItem.items.length / chunkSize) },
-    (_, index) =>
-      movieItem.items.slice(index * chunkSize, index * chunkSize + chunkSize)
-  );
 
   let type = '';
   switch (params.type) {
@@ -41,23 +35,19 @@ const Tops = async ({ params, searchParams }: any) => {
     default:
       type = '';
   }
-
+ 
   return (
     <div>
-      <h1 className='py-4 text-center mt-12'>Новинки {type}</h1>
-      <div className='flex justify-center gap-0 pb-20 px-5 md:px-1'>
-        {chunkedArray.map((chunk, index) => (
-          <div key={index}>
-            {chunk.map((element: any) => (
-              <div key={element.id} className='flex'> 
-                <Link
-                  href={`lists/${params.type}/${element.kinopoiskId}`}
-                  key={element.kinopoiskId}
-                >
-                  <MovieCardPreview props={element} key={element.kinopoiskId} />
-                </Link>
-              </div>
-            ))}
+      <h1 className='py-4 text-center'>Новинки {type}</h1>
+      <div className='grid gap-2 px-5 md:px-1'>
+        {movieItem.items.map((element: any) => (
+          <div key={element.id} className=''>
+            <Link
+              href={`lists/${params.type}/${element.kinopoiskId}`}
+              key={element.kinopoiskId}
+            >
+              <MovieCardPreview props={element} key={element.kinopoiskId} />
+            </Link>
           </div>
         ))}
       </div>

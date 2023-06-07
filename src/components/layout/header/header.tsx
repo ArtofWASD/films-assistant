@@ -1,13 +1,13 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import LeftMenu from '../../left-menu/left-menu';
+import SidebarMenu from '../../sidebar-menu/sidebar-menu';
 
 const Header = () => {
   return (
     <header className='bg-gradient-to-r from-zinc-800 to-blue-500 '>
       <nav className='flex justify-between items-center py-2'>
         <span>
-          <LeftMenu/>
+        <SidebarMenu/>
         </span>
         <ul className='flex gap-2 pr-3'>
           <Link href='/profile'>
