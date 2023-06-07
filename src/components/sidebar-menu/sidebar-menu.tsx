@@ -1,15 +1,15 @@
 'use client';
-import { Disclosure, Transition } from '@headlessui/react';
+import { Disclosure, Popover, Transition } from '@headlessui/react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const SidebarMenu = () => {
   return (
     <div>
-      <Disclosure as='nav'>
+      <Popover as='nav'>
         {({ open }) => (
           <>
-            <Disclosure.Button className='inline-flex items-center peer justify-center right-48 top-1'>
+            <Popover.Button>
               <Image
                 src={
                   open
@@ -22,7 +22,7 @@ const SidebarMenu = () => {
                 sizes='100vw'
                 className='h-8 w-8 ml-3'
               />
-            </Disclosure.Button>
+            </Popover.Button>
             <Transition
               enter='transition duration-100 ease-out'
               enterFrom='transform scale-95 opacity-0'
@@ -31,8 +31,8 @@ const SidebarMenu = () => {
               leaveFrom='transform scale-100 opacity-100'
               leaveTo='transform scale-95 opacity-0'
             >
-              <Disclosure.Panel>
-                <div className='pl-2 pt-14 bg-opacity-20 bg-slate-500 fixed w-60'>
+              <Popover.Panel>
+                <div className='sidepanel-content pl-2 pt-14 bg-opacity-20 bg-slate-500 w-60'>
                   <ul>
                     <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3'>
                       <Link href='/'>На главную</Link>
@@ -50,13 +50,13 @@ const SidebarMenu = () => {
                       <Link href='/lists/tv_show'>Тв сериалы</Link>
                     </li>
                   </ul>
-                  <Disclosure.Button className=''>Закрыть</Disclosure.Button>
+                  <Popover.Button className=''>Закрыть</Popover.Button>
                 </div>
-              </Disclosure.Panel>
+              </Popover.Panel>
             </Transition>
           </>
         )}
-      </Disclosure>
+      </Popover >
     </div>
   );
 };
