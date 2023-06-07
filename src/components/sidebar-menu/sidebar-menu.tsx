@@ -31,6 +31,7 @@ const SidebarMenu = () => {
               leaveFrom='transform scale-100 opacity-100'
               leaveTo='transform scale-95 opacity-0'
             >
+              <Popover.Overlay as='div' className="fixed inset-0 bg-black opacity-30 blur-lg" />
               <Popover.Panel>
                 <div className='sidepanel-content pl-2 pt-14 bg-opacity-20 bg-slate-500 w-60'>
                   <ul>
