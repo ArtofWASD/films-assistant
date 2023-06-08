@@ -15,9 +15,9 @@ const Page = async () => {
       <h1 className='text-center py-4'>
         Кинотаймер. Твой личный кинокалендарь!
       </h1>
-      <section>
+      <div>
         <Galery images={filteredFilms}/>
-      </section>
+      </div>
       {/* <section className='bg-slate-300 bg-opacity-30'>
         <p className='text-center pt-4 font-semibold text-xl'>Цифровые релизы</p>
         <div className='grid grid-flow-col justify-center gap-6 px-5 md:px-1 py-4'>

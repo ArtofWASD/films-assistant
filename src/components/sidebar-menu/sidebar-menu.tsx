@@ -1,5 +1,5 @@
 'use client';
-import { Disclosure, Popover, Transition } from '@headlessui/react';
+import { Popover, Transition } from '@headlessui/react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -25,15 +25,14 @@ const SidebarMenu = () => {
             </Popover.Button>
             <Transition
               enter='transition duration-100 ease-out'
-              enterFrom='transform scale-95 opacity-0'
-              enterTo='transform scale-100 opacity-100'
+              enterFrom='transform scale-95 opacity-0 x-0'
+              enterTo='transform scale-100 opacity-100 x-100'
               leave='transition duration-75 ease-out'
               leaveFrom='transform scale-100 opacity-100'
               leaveTo='transform scale-95 opacity-0'
             >
-              
-              <Popover.Panel className='sidepanel-content pl-2 pt-14 w-60 mt-1 bg-sky-600'>
-                <div >
+              <Popover.Panel className='sidepanel-content pl-2 pt-2 w-60 mt-1 bg-sky-600 bg-opacity-20'>
+                <div>
                   <ul>
                     <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/'>На главную</Link>
@@ -56,7 +55,7 @@ const SidebarMenu = () => {
             </Transition>
           </>
         )}
-      </Popover >
+      </Popover>
     </div>
   );
 };

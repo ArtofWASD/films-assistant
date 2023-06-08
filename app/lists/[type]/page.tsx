@@ -38,7 +38,7 @@ const Tops = async ({ params, searchParams }: any) => {
  
   return (
     <div>
-      <h1 className='py-4 text-center'>Новинки {type}</h1>
+      <h1 className='py-4 text-center mt-10'>Новинки {type}</h1>
       <div className='grid gap-2 px-5 md:px-1'>
         {movieItem.items.map((element: any) => (
           <div key={element.id} className=''>
