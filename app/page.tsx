@@ -12,9 +12,6 @@ const Page = async () => {
   
   return (
     <main className='flex flex-col justify-items-cente'>
-      <h1 className='text-center py-4'>
-        Кинотаймер. Твой личный кинокалендарь!
-      </h1>
       <div>
         <Galery images={filteredFilms}/>
       </div>

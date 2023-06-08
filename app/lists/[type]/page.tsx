@@ -11,9 +11,9 @@ interface PageProps {
   };
 }
 
-const Tops = async ({ params, searchParams }: any) => {
+const Tops = async ({ params, searchParams }: PageProps) => {
   const query = await params?.type.toUpperCase();
-  let movieItem: any='';
+  let movieItem: any = '';
   searchParams?.page === undefined
     ? (movieItem = await getLatestMovie(query, 1))
     : (movieItem = await getLatestMovie(query, searchParams.page));
@@ -35,7 +35,7 @@ const Tops = async ({ params, searchParams }: any) => {
     default:
       type = '';
   }
- 
+
   return (
     <div>
       <h1 className='py-4 text-center mt-10'>Новинки {type}</h1>
@@ -52,11 +52,15 @@ const Tops = async ({ params, searchParams }: any) => {
         ))}
       </div>
       <div className='pb-10'>
-        <Pagination
-          totalPages={movieItem?.totalPages}
-          currentPage={searchParams?.page}
-          type={params.type}
-        />
+        {searchParams && (
+          <>
+            <Pagination
+              totalPages={movieItem?.totalPages}
+              currentPage={searchParams?.page}
+              type={params.type}
+            />
+          </>
+        )}
       </div>
     </div>
   );

@@ -9,12 +9,12 @@ const SidebarMenu = () => {
       <Popover as='nav'>
         {({ open }) => (
           <>
-            <Popover.Button>
+            <Popover.Button as='button'>
               <Image
                 src={
                   open
-                    ? '/images/menu-burger-active.png'
-                    : '/images/menu-burger.png'
+                    ? '/images/popcorn_open.png'
+                    : '/images/popcorn.png'
                 }
                 alt='menu-burger'
                 width={0}
@@ -24,29 +24,29 @@ const SidebarMenu = () => {
               />
             </Popover.Button>
             <Transition
-              enter='transition duration-100 ease-out'
-              enterFrom='transform scale-95 opacity-0 x-0'
-              enterTo='transform scale-100 opacity-100 x-100'
-              leave='transition duration-75 ease-out'
-              leaveFrom='transform scale-100 opacity-100'
-              leaveTo='transform scale-95 opacity-0'
+              enter='transition ease-in-out duration-300 transform'
+              enterFrom='-translate-x-full'
+              enterTo='translate-x-0'
+              leave='transition ease-in-out duration-300 transform'
+              leaveFrom='translate-x-0'
+              leaveTo='-translate-x-full'
             >
-              <Popover.Panel className='sidepanel-content pl-2 pt-2 w-60 mt-1 bg-sky-600 bg-opacity-20'>
+              <Popover.Panel className='sidepanel-content pl-2 pt-2 w-60 mt-1 bg-gradient-to-r from-zinc-800 to-gray-600 z-10'>
                 <div>
                   <ul>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
+                    <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/'>На главную</Link>
                     </li>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
+                    <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/lists/film'>Фильмы</Link>
                     </li>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
+                    <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/lists/tv_series'>Сериалы</Link>
                     </li>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
+                    <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/lists/mini_series'>Мини сериалы</Link>
                     </li>
-                    <li className='font-semibold hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
+                    <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
                       <Link href='/lists/tv_show'>Тв сериалы</Link>
                     </li>
                   </ul>
