@@ -9,7 +9,7 @@ const SidebarMenu = () => {
       <Popover as='nav'>
         {({ open }) => (
           <>
-            <Popover.Button as='button'>
+            <Popover.Button as='button' autoFocus={false} className='focus:outline-none'>
               <Image
                 src={
                   open
@@ -20,7 +20,7 @@ const SidebarMenu = () => {
                 width={0}
                 height={0}
                 sizes='100vw'
-                className='h-8 w-8 ml-3'
+                className='h-9 w-9 ml-3'
               />
             </Popover.Button>
             <Transition

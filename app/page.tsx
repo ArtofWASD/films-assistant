@@ -11,7 +11,8 @@ const Page = async () => {
   const filteredFilms = newFilms?.items?.slice(0, 6);
   
   return (
-    <main className='flex flex-col justify-items-cente'>
+    <main className='flex flex-col justify-items-cente mt-11'>
+      <h1 className='text-center text-slate-500 font-semibold py-4'>Кинотаймер. Твой личный кинокалендарь.</h1>
       <div>
         <Galery images={filteredFilms}/>
       </div>
