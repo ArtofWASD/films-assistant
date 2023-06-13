@@ -3,7 +3,7 @@ import SidebarMenu from '../../sidebar-menu/sidebar-menu';
 
 const Header = () => {
   return (
-    <header className='bg-gradient-to-r from-zinc-800 to-blue-500'>
+    <header className=''>
       <div className='flex flex-wrap justify-between items-center pt-2'>
         <div>
           <SidebarMenu />

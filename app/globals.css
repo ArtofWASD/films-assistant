@@ -8,6 +8,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url('../public/images/bg.png');
+  background-color: #070514;
+  background-size: cover;
 }
 
 main {

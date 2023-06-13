@@ -31,7 +31,7 @@ const SidebarMenu = () => {
               leaveFrom='translate-x-0'
               leaveTo='-translate-x-full'
             >
-              <Popover.Panel className='sidepanel-content pl-2 pt-2 w-60 mt-1 bg-gradient-to-r from-zinc-800 to-gray-600 z-10'>
+              <Popover.Panel className='sidepanel-content pl-2 pt-2 w-60 mt-1 z-10'>
                 <div>
                   <ul>
                     <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>

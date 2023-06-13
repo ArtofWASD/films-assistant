@@ -51,7 +51,7 @@ const Galery = ({ images }: any) => {
             className='object-cover transition-opacity duration-500 ease-in-out rounded-xl'
             onLoad={handleImageLoad}
           />
-          <p className='text-2xl pl-4'>{currentImage.nameOriginal}</p>
+          <p className='text-2xl pl-4 text-white'>{currentImage.nameOriginal}</p>
         </motion.div>
       </div>
       <div className='flex justify-center gap-4 py-4'>

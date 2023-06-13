@@ -12,18 +12,17 @@ const Page = async () => {
 
   return (
     <main className='flex flex-col justify-items-cente mt-11'>
-      <div className='flex justify-center items-end gap-4 py-6'>
+      <div className='flex flex-col justify-center items-center py-6'>
         <Image
-          src='/images/cinema.png'
+          src='/images/main_logo.png'
           alt='Кинотаймер'
-          width={0}
-          height={0}
-          sizes='100vw'
-          className='h-14 w-14 rounded-xl'
+          width={364}
+          height={83}
+          className='rounded-xl'
         />
-        <h1 className='text-center text-slate-500 font-semibold'>
-          Кинотаймер. Твой личный кинокалендарь.
-        </h1>
+        <h2 className='text-center text-white font-semibold'>
+          Твой личный кинокалендарь.
+        </h2>
       </div>
 
       <div>
