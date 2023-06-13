@@ -15,7 +15,7 @@ const Galery = ({ images }: any) => {
   };
 
   const nextImage = () => {
-    if (currentIndex < images.length - 1) {
+    if (currentIndex < images.docs.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setImageLoaded(false);
     }
@@ -29,11 +29,12 @@ const Galery = ({ images }: any) => {
     setImageLoaded(true);
   };
 
-  const currentImage = images[currentIndex];
+  const currentImage = images.docs[currentIndex];
+
   return (
     <>
       <div
-        key={currentImage.nameOriginal}
+        key={currentImage.id}
         className='flex justify-center flex-col bg-slate-400 bg-opacity-20 py-2 h-96'
       >
         <motion.div
@@ -44,26 +45,37 @@ const Galery = ({ images }: any) => {
           transition={{ duration: 0.8 }}
         >
           <Image
-            src={currentImage.posterUrl}
-            alt={currentImage.nameOriginal}
+            src={currentImage.poster.url}
+            alt={currentImage.name}
             height={250}
             width={250}
             className='object-cover transition-opacity duration-500 ease-in-out rounded-xl'
             onLoad={handleImageLoad}
           />
-          <p className='text-2xl pl-4 text-white'>{currentImage.nameOriginal}</p>
+          <div className='flex flex-col'>
+            <p className='text-2xl ml-4 text-white'>{currentImage.name}</p>
+            <p className='text-lg ml-4 text-white border-b'>
+              {currentImage.shortDescription}
+            </p>
+            {currentImage.genres.map((item:any) =>(
+              <p className='text-lg ml-4 text-white' key={item.name}>{item.name}</p>
+            ))}
+          </div>
         </motion.div>
       </div>
       <div className='flex justify-center gap-4 py-4'>
-        <button onClick={previousImage} disabled={currentIndex === 0}
-        className='text-xl font-semibold text-slate-500'>
+        <button
+          onClick={previousImage}
+          disabled={currentIndex === 0}
+          className='text-xl font-semibold text-slate-500'
+        >
           Сюдой
         </button>
         <div className='navigation-dots  gap-3 flex justify-center my-2'>
-          {images.map((_: any, index: any) => (
+          {images.docs.map((_: any, index: any) => (
             <span
               key={index}
-              className={`dot w-5 h-3 rounded-xl ${
+              className={`dot w-4 h-3 rounded-xl ${
                 index === currentIndex
                   ? 'active bg-orange-500 scale-150'
                   : 'bg-slate-300'
@@ -75,7 +87,7 @@ const Galery = ({ images }: any) => {
 
         <button
           onClick={nextImage}
-          disabled={currentIndex === images.length - 1}
+          disabled={currentIndex === images.docs.length - 1}
           className='text-xl font-semibold text-slate-500'
         >
           Тудой

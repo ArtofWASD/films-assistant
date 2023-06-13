@@ -3,12 +3,14 @@ import MovieCardPreview from '../src/components/movie-card/movie-card-preview/mo
 import getFilmsReleases from '../src/utils/handlers/getFilmsRealese';
 import getLatestMovie from '../src/utils/handlers/getLatestMovie';
 import Image from 'next/image';
+import newApi from '../src/utils/handlers/newApi';
 
 const Page = async () => {
   const newRealases = await getFilmsReleases();
   const filtredNewRealases = await newRealases?.releases?.slice(0, 6);
   const newFilms = await getLatestMovie('FILM', 1);
   const filteredFilms = newFilms?.items?.slice(0, 6);
+  const newFilmsApi = await newApi()
 
   return (
     <main className='flex flex-col justify-items-cente mt-11'>
@@ -26,7 +28,7 @@ const Page = async () => {
       </div>
 
       <div>
-        <Galery images={filteredFilms} />
+        <Galery images={newFilmsApi} />
       </div>
       {/* <section className='bg-slate-300 bg-opacity-30'>
         <p className='text-center pt-4 font-semibold text-xl'>Цифровые релизы</p>

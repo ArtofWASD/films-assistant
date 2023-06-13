@@ -2,7 +2,15 @@
 require('dotenv/config');
 const nextConfig = {
   images: {
-    domains: ['kinopoiskapiunofficial.tech'],
+    remoutePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'st.kp.yandex.net',
+        port: '',
+        pathname: '/images/**',
+      }
+    ],
+    domains: ['st.kp.yandex.net'],
   },
   experimental: {
     appDir: true
