@@ -45,7 +45,7 @@ const Galery = ({ images }: any) => {
           transition={{ duration: 0.8 }}
         >
           <Image
-            src={currentImage.poster.url}
+            src={currentImage.poster.previewUrl}
             alt={currentImage.name}
             height={250}
             width={250}
@@ -53,7 +53,7 @@ const Galery = ({ images }: any) => {
             onLoad={handleImageLoad}
           />
           <div className='flex flex-col'>
-            <p className='text-2xl ml-4 text-white'>{currentImage.name}</p>
+            <p className='text-2xl ml-4 text-white'>{currentImage.alternativeName ? <>{currentImage.name} | {currentImage.alternativeName}</>:<>{currentImage.name}</>}</p>
             <p className='text-lg ml-4 text-white border-b'>
               {currentImage.shortDescription}
             </p>
