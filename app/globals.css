@@ -37,3 +37,9 @@ h2 {
 .layout {
   min-height: calc(100vh - 50px);
 }
+.galery{
+  min-height: 480px;
+}
+.galery-description{
+  max-width: 400px;
+}

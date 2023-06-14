@@ -23,7 +23,7 @@ const Header = () => {
             type='search'
             name='search'
             id=''
-            className='relative rounded-full border-2 border-rose-600 w-8 h-8 hover:w-72 bg-transparent text-white pl-7 duration-500 z-10'
+            className='relative rounded-full border-2 border-rose-600 w-8 h-8 hover:w-72 bg-transparent text-white pl-7 duration-500 z-10 hover:shadow-[0px_0px_5px_5px_rgba(159,18,57,0.5)]'
           />
           <Image
             src='/images/search_icon.png'
@@ -40,7 +40,7 @@ const Header = () => {
             alt='Кинотаймер'
             width={30}
             height={30}
-            className='rounded-full border-2 border-rose-600 p-1'
+            className='rounded-full border-2 border-rose-600 p-1 hover:shadow-[0px_0px_5px_5px_rgba(159,18,57,0.5)]'
           />
         </Link>
       </div>
