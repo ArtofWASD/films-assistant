@@ -13,20 +13,7 @@ const Page = async () => {
   const newFilmsApi = await newApi()
 
   return (
-    <main className='flex flex-col justify-items-cente mt-11'>
-      <div className='flex flex-col justify-center items-center py-6'>
-        <Image
-          src='/images/main_logo.png'
-          alt='Кинотаймер'
-          width={364}
-          height={83}
-          className='rounded-xl'
-        />
-        <h2 className='text-center text-white font-semibold'>
-          Твой личный кинокалендарь.
-        </h2>
-      </div>
-
+    <main className='flex flex-col justify-items-cente mt-24'>
       <div>
         <Galery images={newFilmsApi} />
       </div>

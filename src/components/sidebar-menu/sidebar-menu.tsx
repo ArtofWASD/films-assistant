@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 const SidebarMenu = () => {
   return (
-    <div>
-      <Popover as='nav'>
+    <div className="z-50">
+      <Popover>
         {({ open }) => (
           <>
             <Popover.Button as='button' autoFocus={false} className='focus:outline-none'>
@@ -31,7 +31,7 @@ const SidebarMenu = () => {
               leaveFrom='translate-x-0'
               leaveTo='-translate-x-full'
             >
-              <Popover.Panel className='sidepanel-content pl-2 pt-2 w-60 mt-1 z-10'>
+              <Popover.Panel className='sidepanel-content pl-2 pt-2 w-60 mt-1 absolute z-50'>
                 <div>
                   <ul>
                     <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
