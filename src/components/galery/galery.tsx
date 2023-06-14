@@ -38,7 +38,7 @@ const Galery = ({ images }: any) => {
         className='galery flex justify-center flex-col bg-slate-900/80 bg-opacity-20 py-2 shadow-[0px_0px_15px_20px_rgba(8,145,178,0.56)]'
       >
         <motion.div
-          className='image-gallery flex px-64 '
+          className='image-gallery flex md:flex-row flex-col px-0 md:px-64 items-center md:items-start'
           initial={{ opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -49,10 +49,10 @@ const Galery = ({ images }: any) => {
             alt={currentImage.name}
             height={350}
             width={325}
-            className='object-cover transition-opacity duration-500 ease-in-out rounded-xl'
+            className='object-cover transition-opacity duration-500 ease-in-out rounded-xl '
             onLoad={handleImageLoad}
           />
-          <div className='galery-description flex flex-col pl-20'>
+          <div className='galery-description flex flex-col pl-0 py-4 md:py-0 md:pl-20'>
             <p className='text-2xl ml-4 text-white '>
               {currentImage.alternativeName ? (
                 <>
