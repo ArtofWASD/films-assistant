@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Genres from '../movie-card/movie-card-utils/genres/genres';
+import Rating from '../movie-card/movie-card-utils/rating/rating';
 
 const Galery = ({ images }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -54,7 +55,7 @@ const Galery = ({ images }: any) => {
             onLoad={handleImageLoad}
           />
           <div className='galery-description flex flex-col pl-0 py-4 md:py-0 md:pl-20'>
-            <p className='text-2xl ml-4 text-white '>
+            <p className='text-2xl text-white '>
               {galeryItem.alternativeName ? (
                 <>
                   {galeryItem.name} | {galeryItem.alternativeName}
@@ -63,13 +64,25 @@ const Galery = ({ images }: any) => {
                 <>{galeryItem.name}</>
               )}
             </p>
-            <p className='text-lg ml-4 text-white border-b flex'>
-              {galeryItem.shortDescription}
+            <p className='text-lg text-white border-b flex'>
+              {galeryItem.description}
             </p>
-            <p className='text-white'>
-            <Genres genres={galeryItem.genres} />
+            <p className='text-white pt-4'>
+              <Genres genres={galeryItem.genres} />
             </p>
-            
+            <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
+              <p className='font-semibold'>Год выпуска:</p>
+              {galeryItem.year}
+            </div>
+            <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
+              <p className='font-semibold'>Страна:</p>
+              {galeryItem.countries.map((item: any) => (
+                <p key={item.name}>{item.name}</p>
+              ))}
+            </div>
+            <div className='text-white'>
+              Кинопоиск: {galeryItem.rating.kp.toFixed(1)}
+            </div>
           </div>
         </motion.div>
       </div>
@@ -88,7 +101,7 @@ const Galery = ({ images }: any) => {
             onLoad={handleImageLoad}
           />
         </button>
-        <div className='navigation-dots  gap-3 flex justify-center my-2'>
+        <div className='navigation-dots gap-3 flex justify-center my-2'>
           {images.docs.map((_: any, index: any) => (
             <span
               key={index}

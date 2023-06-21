@@ -81,10 +81,15 @@ const Tops = async ({ params, searchParams }: PageProps) => {
   );
 };
 const getBoxClass = (index:number) => {
-  const colSpan = index % 4 === 1 ? 2 : 1;
-  const rowSpan = index % 4 === 1 ? 2 : 1;
+  // const colSpan = index % 3 === 1 ? 2 : 1;
+  // const rowSpan = index % 3 === 1 ? 2 : 1;
 
-  return `col-span-${colSpan} row-span-${rowSpan}`;
+  // return `col-span-${colSpan} row-span-${rowSpan}`;
+  if (index % 5) {
+    return 'col-span-1 row-span-1';
+  } else {
+    return 'col-span-1 row-span-2';
+  }
 };
 
 export default Tops;
