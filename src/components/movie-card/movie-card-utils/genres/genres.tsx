@@ -7,7 +7,7 @@ const Genres: React.FC<GenresProps> = ({ genres }) => {
     <div className='flex gap-1'>
       <p className='font-semibold'>Жанр:</p>
       <p className='flex gap-1 whitespace-normal'>
-        {genres.map((item:any) => item.genre).join(', ')}
+        {genres.map((item:any) => item.name).join(', ')}
       </p>
     </div>
   );

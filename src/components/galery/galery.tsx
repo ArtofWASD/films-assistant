@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Genres from '../movie-card/movie-card-utils/genres/genres';
 
 const Galery = ({ images }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,12 +30,12 @@ const Galery = ({ images }: any) => {
     setImageLoaded(true);
   };
 
-  const currentImage = images.docs[currentIndex];
+  const galeryItem = images.docs[currentIndex];
 
   return (
     <>
       <div
-        key={currentImage.id}
+        key={galeryItem.id}
         className='galery flex justify-center flex-col bg-slate-900/80 bg-opacity-20 py-2 shadow-[0px_0px_15px_20px_rgba(8,145,178,0.56)]'
       >
         <motion.div
@@ -45,8 +46,8 @@ const Galery = ({ images }: any) => {
           transition={{ duration: 0.8 }}
         >
           <Image
-            src={currentImage.poster.previewUrl}
-            alt={currentImage.name}
+            src={galeryItem.poster?.previewUrl}
+            alt={galeryItem.name}
             height={350}
             width={325}
             className='object-cover transition-opacity duration-500 ease-in-out rounded-xl '
@@ -54,22 +55,21 @@ const Galery = ({ images }: any) => {
           />
           <div className='galery-description flex flex-col pl-0 py-4 md:py-0 md:pl-20'>
             <p className='text-2xl ml-4 text-white '>
-              {currentImage.alternativeName ? (
+              {galeryItem.alternativeName ? (
                 <>
-                  {currentImage.name} | {currentImage.alternativeName}
+                  {galeryItem.name} | {galeryItem.alternativeName}
                 </>
               ) : (
-                <>{currentImage.name}</>
+                <>{galeryItem.name}</>
               )}
             </p>
             <p className='text-lg ml-4 text-white border-b flex'>
-              {currentImage.shortDescription}
+              {galeryItem.shortDescription}
             </p>
-            {currentImage.genres.map((item: any) => (
-              <p className='text-lg ml-4 text-white' key={item.name}>
-                {item.name}
-              </p>
-            ))}
+            <p className='text-white'>
+            <Genres genres={galeryItem.genres} />
+            </p>
+            
           </div>
         </motion.div>
       </div>
@@ -81,7 +81,7 @@ const Galery = ({ images }: any) => {
         >
           <Image
             src='/images/prev.png'
-            alt={currentImage.name}
+            alt={galeryItem.name}
             height={10}
             width={10}
             className='mr-1'
@@ -109,7 +109,7 @@ const Galery = ({ images }: any) => {
         >
           <Image
             src='/images/next.png'
-            alt={currentImage.name}
+            alt={galeryItem.name}
             height={10}
             width={10}
             className='ml-1'

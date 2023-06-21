@@ -3,14 +3,10 @@ import MovieCardPreview from '../src/components/movie-card/movie-card-preview/mo
 import getFilmsReleases from '../src/utils/handlers/getFilmsRealese';
 import getLatestMovie from '../src/utils/handlers/getLatestMovie';
 import Image from 'next/image';
-import newApi from '../src/utils/handlers/newApi';
+import galeryApi from '../src/utils/handlers/galeryApi';
 
 const Page = async () => {
-  const newRealases = await getFilmsReleases();
-  const filtredNewRealases = await newRealases?.releases?.slice(0, 6);
-  const newFilms = await getLatestMovie('FILM', 1);
-  const filteredFilms = newFilms?.items?.slice(0, 6);
-  const newFilmsApi = await newApi()
+  const newFilmsApi = await galeryApi()
 
   return (
     <main className='flex flex-col justify-items-cente mt-24'>
