@@ -18,8 +18,7 @@ const Tops = async ({ params, searchParams }: PageProps) => {
   searchParams?.page === undefined
     ? (movieItem = await getLatestMovie(query, 1))
     : (movieItem = await getLatestMovie(query, searchParams.page));
-  const newFilmsApi = await newApi()
-  
+  const newFilmsApi = await newApi();
 
   let type = '';
   switch (params.type) {
@@ -39,35 +38,26 @@ const Tops = async ({ params, searchParams }: PageProps) => {
       type = '';
   }
 
-
-
   return (
     <div>
       <h1 className='py-4 text-center mt-10 text-white'>Новинки {type}</h1>
 
-      <div className="body">
-      <div className="wrapper grid grid-cols-3 text-black">
-        {newFilmsApi.docs.map((item:any, index:number) => (
-          <div key={index} className={`box ${getBoxClass(index)}`}>
-            <MovieCardPreview props={item} key={item.kinopoiskId} />
-          </div>
-        ))}
+      <div className='body'>
+        <div className='wrapper grid grid-cols-3 text-black'>
+          {newFilmsApi.docs.map((item: any, index: number) => (
+            <div key={index} className={`box ${getBoxClass(index)}`}>
+              <Link
+                href={`${params.type}/${item.id}`}
+                key={item.kinopoiskId}
+              >
+                <MovieCardPreview props={item} key={item.kinopoiskId} />
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-      {/* <div className='grid gap-2 px-5 md:px-1'>
-        {movieItem.items.map((element: any) => (
-          <div key={element.id} className=''>
-            <Link
-              href={`lists/${params.type}/${element.kinopoiskId}`}
-              key={element.kinopoiskId}
-            >
-              <MovieCardPreview props={element} key={element.kinopoiskId} />
-            </Link>
-          </div>
-        ))}
-      </div> */}
       <div className='pb-10'>
-        {searchParams && (
+        {/* {searchParams && (
           <>
             <Pagination
               totalPages={movieItem?.totalPages}
@@ -75,12 +65,12 @@ const Tops = async ({ params, searchParams }: PageProps) => {
               type={params.type}
             />
           </>
-        )}
+        )} */}
       </div>
     </div>
   );
 };
-const getBoxClass = (index:number) => {
+const getBoxClass = (index: number) => {
   if (index % 5) {
     return 'col-span-1 row-span-1';
   } else {

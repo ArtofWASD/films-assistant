@@ -15,10 +15,10 @@ interface FilmsProps{
 } 
 
 const ActorPage = async ({ params }: ActorPageProps) => {
-    const actor = await getActorInfoById(params.actorid)
+    // const actor = await getActorInfoById(params.actorid)
   return (
     <div>
-          <h1>{actor.nameRu}</h1>
+          {/* <h1>{actor.nameRu}</h1>
           <p> Возраст {actor.age}</p><p>день рождения {actor.birthday}</p>
           <p>{actor.birthplace}</p>
           <Image src={actor.posterUrl} alt={actor.nameRu} width={40} height={50} />
@@ -36,7 +36,7 @@ const ActorPage = async ({ params }: ActorPageProps) => {
               Интересные факты: {
               
               }
-          </div>
+          </div> */}
     </div>
   )
 }

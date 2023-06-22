@@ -1,9 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import Genres from '../movie-card/movie-card-utils/genres/genres';
-import Rating from '../movie-card/movie-card-utils/rating/rating';
+import Countries from '../movie-card/movie-card-utils/countries/countries';
 
 const Galery = ({ images }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,13 +38,7 @@ const Galery = ({ images }: any) => {
         key={galeryItem.id}
         className='galery flex justify-center flex-col bg-slate-900/80 bg-opacity-20 py-2 shadow-[0px_0px_15px_20px_rgba(8,145,178,0.56)]'
       >
-        <motion.div
-          className='image-gallery flex md:flex-row flex-col px-0 md:px-64 items-center md:items-start'
-          initial={{ opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className='gallery-film_image flex md:flex-row flex-col px-0 md:px-64 items-center md:items-start'>
           <Image
             src={galeryItem.poster?.previewUrl}
             alt={galeryItem.name}
@@ -54,37 +47,36 @@ const Galery = ({ images }: any) => {
             className='object-cover transition-opacity duration-500 ease-in-out rounded-xl '
             onLoad={handleImageLoad}
           />
-          <div className='galery-description flex flex-col pl-0 py-4 md:py-0 md:pl-20'>
-            <p className='text-2xl text-white '>
-              {galeryItem.alternativeName ? (
-                <>
-                  {galeryItem.name} | {galeryItem.alternativeName}
-                </>
-              ) : (
-                <>{galeryItem.name}</>
-              )}
-            </p>
-            <p className='text-lg text-white border-b flex'>
-              {galeryItem.description}
-            </p>
-            <div className='text-white pt-4'>
-              <Genres genres={galeryItem.genres} />
+          <div className='galery-film_info flex flex-col pl-0 py-4 md:py-0 md:pl-20 self-auto'>
+            <div className='galery-film_header'>
+              <p className='text-2xl text-white '>
+                {galeryItem.alternativeName ? (
+                  <>
+                    {galeryItem.name} | {galeryItem.alternativeName}
+                  </>
+                ) : (
+                  <>{galeryItem.name}</>
+                )}
+              </p>
+              <p className='text-lg text-white'>{galeryItem.description}</p>
             </div>
-            <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
-              <p className='font-semibold'>Год выпуска:</p>
-              {galeryItem.year}
-            </div>
-            <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
-              <p className='font-semibold'>Страна:</p>
-              {galeryItem.countries.map((item: any) => (
-                <p key={item.name}>{item.name}</p>
-              ))}
-            </div>
-            <div className='text-white'>
-              Кинопоиск: {galeryItem.rating.kp.toFixed(1)}
+            <div className='galery-film_footer'>
+              <div className='text-white pt-4'>
+                <Genres genres={galeryItem.genres} />
+              </div>
+              <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
+                <p className='font-semibold'>Год выпуска:</p>
+                {galeryItem.year}
+              </div>
+              <div className='movie-card_countries flex gap-1 text-sm md:text-base text-white'>
+                <Countries countries={galeryItem.countries} />
+              </div>
+              <div className='text-white'>
+                Кинопоиск: {galeryItem.rating.kp.toFixed(1)}
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
       <div className='flex justify-center items-center gap-4 pt-10'>
         <button
@@ -107,7 +99,7 @@ const Galery = ({ images }: any) => {
               key={index}
               className={`dot w-4 h-3 rounded-xl ${
                 index === currentIndex
-                  ? 'active bg-cyan-600 shadow-[0px_0px_5px_5px_rgba(8,145,178,0.56)] scale-150'
+                  ? 'active bg-cyan-600 shadow-[0px_0px_3px_3px_rgba(8,145,178,0.56)] scale-150'
                   : 'bg-cyan-600'
               }`}
               onClick={() => goToImage(index)}
