@@ -1,4 +1,4 @@
-import getMovie from '../../../../src/utils/handlers/getMovieHandler';
+
 import MovieCard from '../../../../src/components/movie-card/movie-card';
 import Tabs from '../../../../src/components/movie-card/movie-card-utils/tabs/tabs';
 import getActorsByFilmId from '../../../../src/utils/handlers/getActorsByFilmId';
@@ -12,7 +12,7 @@ interface FilmPageParams {
 }
 const FilmPage = async ({ params }: FilmPageParams) => {
   
-  const item = await getMovie(params.filmid);
+  // const item = await getMovie(params.filmid);
   const actorsList = await getActorsByFilmId(params.filmid);
   const awardsList = await getMovieAwards(params.filmid);
 
@@ -25,7 +25,7 @@ const FilmPage = async ({ params }: FilmPageParams) => {
 
   return (
     <div className="my-16">
-      <Tabs
+      {/* <Tabs
         film={<MovieCard props={item} />}
         actors={
           <ActrosList
@@ -35,7 +35,7 @@ const FilmPage = async ({ params }: FilmPageParams) => {
           />
         }
         awards={<AwardsList awards={awardsList} />}
-      />
+      /> */}
     </div>
   );
 };

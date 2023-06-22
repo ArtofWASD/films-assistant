@@ -67,9 +67,9 @@ const Galery = ({ images }: any) => {
             <p className='text-lg text-white border-b flex'>
               {galeryItem.description}
             </p>
-            <p className='text-white pt-4'>
+            <div className='text-white pt-4'>
               <Genres genres={galeryItem.genres} />
-            </p>
+            </div>
             <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
               <p className='font-semibold'>Год выпуска:</p>
               {galeryItem.year}
