@@ -43,7 +43,7 @@ const Tops = async ({ params, searchParams }: PageProps) => {
       <h1 className='py-4 text-center mt-10 text-white'>Новинки {type}</h1>
 
       <div className='body'>
-        <div className='wrapper grid grid-cols-3 text-black'>
+        <div className='wrapper grid grid-cols-[45%_30%_30%] text-black'>
           {newFilmsApi.docs.map((item: any, index: number) => (
             <div key={index} className={`box ${getBoxClass(index)}`}>
               <Link

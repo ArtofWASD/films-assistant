@@ -17,7 +17,7 @@ const Rating: React.FC<RatingProps> = ({ title, rating, icon }) => {
           className='md:h-8 md:w-8 h-6 w-6'
         />
         <p className='font-semibold'>{title}:</p>
-        {rating}
+        {rating.toFixed(1)}
       </div>
     </>
   );
