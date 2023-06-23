@@ -18,6 +18,7 @@ interface MovieCardPreviewProps {
     ratingKinopoisk: number;
     ratingImdb: number;
     genres: Array<string>;
+    shortDescription: string;
   };
   key: string;
 }
@@ -40,11 +41,14 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props, key }) => {
           <h2 className='movie-card_name text-white text-md md:text-base font-semibold whitespace-normal'>
             {props.name ? <>{props.name}</> : <>{props.nameOriginal}</>}
           </h2>
+          <div className='movie-card_shortDescr flex gap-1 w-64 text-sm md:text-base text-white'>
+            {props.shortDescription}
+          </div>
           <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
             <p className='font-semibold'>Год выпуска:</p>
             {props.year}
           </div>
-          <div className='movie-card_genres flex gap-1 text-sm md:text-base text-white'>
+          <div className='movie-card_genres text-sm md:text-base text-white'>
             <Genres genres={props.genres} />
           </div>
         </div>

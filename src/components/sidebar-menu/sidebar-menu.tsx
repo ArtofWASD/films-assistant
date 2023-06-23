@@ -7,7 +7,7 @@ const SidebarMenu = () => {
   return (
     <div className="z-50">
       <Popover>
-        {({ open }) => (
+        {({ open, close }) => (
           <>
             <Popover.Button as='button' autoFocus={false} className='focus:outline-none'>
               <Image
@@ -35,19 +35,22 @@ const SidebarMenu = () => {
                 <div>
                   <ul>
                     <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
-                      <Link href='/'>На главную</Link>
+                      <Link href='/' onClick={() =>{close()}}>На главную</Link>
                     </li>
                     <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
-                      <Link href='/lists/film'>Фильмы</Link>
+                      <Link href='/lists/movie' onClick={() =>{close()}} >Фильмы</Link>
                     </li>
                     <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
-                      <Link href='/lists/tv_series'>Сериалы</Link>
+                      <Link href='/lists/tv-series' onClick={() =>{close()}} >Сериалы</Link>
                     </li>
                     <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
-                      <Link href='/lists/mini_series'>Мини сериалы</Link>
+                      <Link href='/lists/cartoon' onClick={() =>{close()}} >Мультфильмы</Link>
                     </li>
                     <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
-                      <Link href='/lists/tv_show'>Тв сериалы</Link>
+                      <Link href='/lists/anime' onClick={() =>{close()}} >Аниме</Link>
+                    </li>
+                    <li className='font-semibold text-slate-200 hover:text-orange-600 text-lg md:text-2xl hover:drop-shadow-xl text-left pl-3 cursor-pointer'>
+                      <Link href='/lists/animated-series' onClick={() =>{close()}} >Анимационные-сериалы</Link>
                     </li>
                   </ul>
                 </div>

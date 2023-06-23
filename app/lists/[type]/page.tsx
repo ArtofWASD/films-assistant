@@ -3,6 +3,7 @@ import MovieCardPreview from '../../../src/components/movie-card/movie-card-prev
 import Pagination from '../../../src/components/pagination/pagination';
 import getLatestMovie from '../../../src/utils/handlers/getLatestMovie';
 import newApi from '../../../src/utils/handlers/galeryApi';
+import getListsOfFilmsApi from '../../../src/utils/handlers/getListsOfFilmsApi';
 interface PageProps {
   params: {
     type: string;
@@ -13,43 +14,46 @@ interface PageProps {
 }
 
 const Tops = async ({ params, searchParams }: PageProps) => {
-  const query = await params?.type.toUpperCase();
   let movieItem: any = '';
   searchParams?.page === undefined
-    ? (movieItem = await getLatestMovie(query, 1))
-    : (movieItem = await getLatestMovie(query, searchParams.page));
-  const newFilmsApi = await newApi();
+    ? (movieItem = await getLatestMovie(params.type, 1))
+    : (movieItem = await getLatestMovie(params.type, searchParams.page));
 
   let type = '';
   switch (params.type) {
-    case 'tv_series':
+    case 'tv-series':
       type = 'тв сериалов.';
       break;
     case 'film':
       type = 'фильмов.';
       break;
-    case 'mini_series':
-      type = 'мини сериалов.';
+    case 'cartoon':
+      type = 'мультфильмов.';
       break;
-    case 'tv_show':
+    case 'anime':
+      type = 'аниме.';
+      break;
+    case 'animated-series':
+      type = 'анимационных сериалов.';
+      break;
+    case 'tv-show':
       type = 'тв-шоу.';
       break;
     default:
       type = '';
   }
+  const listOfFilms = await getListsOfFilmsApi(params.type);
+
 
   return (
     <div>
       <h1 className='py-4 text-center mt-10 text-white'>Новинки {type}</h1>
 
       <div className='body'>
-        <div className='wrapper grid grid-cols-[45%_30%_30%] text-black'>
-          {newFilmsApi.docs.map((item: any, index: number) => (
+        <div className='wrapper grid grid-cols-[45%_33%_33%] gap-2 text-black'>
+          {listOfFilms.docs.map((item: any, index: number) => (
             <div key={index} className={`box ${getBoxClass(index)}`}>
-              <Link
-                href={`${params.type}/${item.id}`}
-                key={item.kinopoiskId}
-              >
+              <Link href={`${params.type}/${item.id}`} key={item.kinopoiskId}>
                 <MovieCardPreview props={item} key={item.kinopoiskId} />
               </Link>
             </div>
@@ -57,7 +61,7 @@ const Tops = async ({ params, searchParams }: PageProps) => {
         </div>
       </div>
       <div className='pb-10'>
-        {/* {searchParams && (
+        {searchParams && (
           <>
             <Pagination
               totalPages={movieItem?.totalPages}
@@ -65,7 +69,7 @@ const Tops = async ({ params, searchParams }: PageProps) => {
               type={params.type}
             />
           </>
-        )} */}
+        )}
       </div>
     </div>
   );
