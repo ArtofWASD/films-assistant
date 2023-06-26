@@ -38,5 +38,5 @@ h2 {
   min-height: calc(100vh - 50px);
 }
 .galery{
-  height: 520px;
+  max-height: 520px;
 }
