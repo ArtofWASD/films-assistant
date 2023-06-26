@@ -38,7 +38,7 @@ const Galery = ({ images }: any) => {
         key={galeryItem.id}
         className='galery flex justify-center flex-col bg-slate-900/80 bg-opacity-20 py-2 shadow-[0px_0px_15px_20px_rgba(8,145,178,0.56)]'
       >
-        <div className='gallery-film_image flex md:flex-row flex-col px-2 md:px-24 lg:px-64 items-center md:items-start'>
+        <div className='gallery-film_image flex md:flex-row flex-col px-2 sm:px-16 md:px-8 lg:px-16 xl:px-64 items-center md:items-start'>
           <Image
             src={galeryItem.poster?.previewUrl}
             alt={galeryItem.name}
@@ -58,7 +58,9 @@ const Galery = ({ images }: any) => {
                   <>{galeryItem.name}</>
                 )}
               </p>
-              <p className='text-sm md:text-lg text-white'>{galeryItem.description}</p>
+              <p className='text-sm md:text-lg text-white'>
+                {galeryItem.description}
+              </p>
             </div>
             <div className='galery-film_footer'>
               <div className='text-white pt-4'>
