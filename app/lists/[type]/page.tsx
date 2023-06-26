@@ -50,7 +50,7 @@ const Tops = async ({ params, searchParams }: PageProps) => {
       <h1 className='py-4 text-center mt-10 text-white'>Новинки {type}</h1>
 
       <div className='body'>
-        <div className='wrapper grid grid-cols-[45%_33%_33%] gap-2 text-black'>
+        <div className='flex flex-col gap-2 px-2 text-black'>
           {listOfFilms.docs.map((item: any, index: number) => (
             <div key={index} className={`box ${getBoxClass(index)}`}>
               <Link href={`${params.type}/${item.id}`} key={item.kinopoiskId}>

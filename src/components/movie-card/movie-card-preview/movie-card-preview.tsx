@@ -35,13 +35,13 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props, key }) => {
           alt={props.name}
           height={350}
           width={150}
-          className='object-cover transition-opacity duration-500 ease-in-out rounded-xl '
+          className='rounded-xl '
         />
-        <div className='movie-card_description top-0 px-2 left-full w-full opacity-100 transition duration-1000'>
-          <h2 className='movie-card_name text-white text-md md:text-base font-semibold whitespace-normal'>
+        <div className='movie-card_description top-0 px-2 left-full w-full'>
+          <h2 className='movie-card_name text-white text-base text-md md:text-base font-bold'>
             {props.name ? <>{props.name}</> : <>{props.nameOriginal}</>}
           </h2>
-          <div className='movie-card_shortDescr flex gap-1 w-64 text-sm md:text-base text-white'>
+          <div className='movie-card_shortDescr flex gap-1 text-sm md:text-base text-white'>
             {props.shortDescription}
           </div>
           <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
