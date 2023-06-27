@@ -1,6 +1,5 @@
 'use client';
 import Genres from '../movie-card-utils/genres/genres';
-import Poster from '../movie-card-utils/poster/poster';
 import Image from 'next/image';
 interface MovieCardPreviewProps {
   props: {
@@ -19,6 +18,8 @@ interface MovieCardPreviewProps {
     ratingImdb: number;
     genres: Array<string>;
     shortDescription: string;
+    description: string;
+
   };
   key: string;
 }
@@ -42,7 +43,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props, key }) => {
             {props.name ? <>{props.name}</> : <>{props.nameOriginal}</>}
           </h2>
           <div className='movie-card_shortDescr flex gap-1 text-sm md:text-base text-white'>
-            {props.shortDescription}
+            {props.shortDescription ? <>{props.shortDescription}</> : <>{props.description.slice(0,100)}...</>}
           </div>
           <div className='movie-card_releaseYear flex gap-1 text-sm md:text-base text-white'>
             <p className='font-semibold'>Год выпуска:</p>
