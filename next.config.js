@@ -2,6 +2,7 @@
 require('dotenv/config');
 const nextConfig = {
   images: {
+    formats:['image/webp'],
     domains: ['st.kp.yandex.net'],
   },
   experimental: {
