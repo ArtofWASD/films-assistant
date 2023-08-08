@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import MovieCardPreview from '../../../src/components/movie-card/movie-card-preview/movie-card-preview';
 import Pagination from '../../../src/components/pagination/pagination';
-import getLatestMovie from '../../../src/utils/handlers/getLatestMovie';
-import newApi from '../../../src/utils/handlers/galeryApi';
 import getListsOfFilmsApi from '../../../src/utils/handlers/getListsOfFilmsApi';
 interface PageProps {
   params: {
@@ -14,10 +12,11 @@ interface PageProps {
 }
 
 const Tops = async ({ params, searchParams }: PageProps) => {
-  let movieItem: any = '';
+  let listOfFilms: any = '';
   searchParams?.page === undefined
-    ? (movieItem = await getLatestMovie(params.type, 1))
-    : (movieItem = await getLatestMovie(params.type, searchParams.page));
+   ? (listOfFilms = await getListsOfFilmsApi(params.type, 1))
+   : (listOfFilms = await getListsOfFilmsApi(params.type, searchParams.page));
+// старый код надо переделеать под новый апи
 
   let type = '';
   switch (params.type) {
@@ -42,9 +41,6 @@ const Tops = async ({ params, searchParams }: PageProps) => {
     default:
       type = '';
   }
-  const listOfFilms = await getListsOfFilmsApi(params.type);
-
-
   return (
     <div>
       <h1 className='py-4 text-center mt-10 text-white'>Новинки {type}</h1>
@@ -64,8 +60,8 @@ const Tops = async ({ params, searchParams }: PageProps) => {
         {searchParams && (
           <>
             <Pagination
-              totalPages={movieItem?.totalPages}
-              currentPage={searchParams?.page}
+              totalPages={listOfFilms?.pages}
+              currentPage={listOfFilms?.page}
               type={params.type}
             />
           </>

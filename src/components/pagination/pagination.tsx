@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({
   }
   const prevPage = Number(currentPage) - 1;
   const nextPage = Number(currentPage) + 1;
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1).slice(0,10);
   return (
     <nav>
       <ul className='pagination flex gap-3 justify-center pb-10 items-center'>
