@@ -14,14 +14,30 @@ const Pagination: React.FC<PaginationProps> = ({
   type,
 }) => {
   if (currentPage === undefined) {
-    currentPage = 1;
+    currentPage = 0;
   }
   const prevPage = Number(currentPage) - 1;
   const nextPage = Number(currentPage) + 1;
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1).slice(0,10);
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1).slice(currentPage-1, currentPage + 10);
+  console.log(totalPages);
+
   return (
     <nav>
       <ul className='pagination flex gap-3 justify-center pb-10 items-center'>
+      {prevPage > 0 && (
+          <li className='pagination-prev'>
+            <Link href={`/lists/${type}`}>
+              <Image
+                src={'/images/prew-arrow.png'}
+                alt={'next'}
+                width={0}
+                height={0}
+                sizes='100vw'
+                className='w-8 h-8 cursor-pointer hover:scale-125 hover:-translate-x-2 transition-transform'
+              />
+            </Link>
+          </li>
+        )}
         {prevPage > 0 && (
           <li className='pagination-prev'>
             <Link href={`/lists/${type}?page=${prevPage}`}>
@@ -39,8 +55,8 @@ const Pagination: React.FC<PaginationProps> = ({
         {pages.map(page => (
           <li
             key={page}
-            className={`pagination-items transition-transform text-xl font-semibold text-slate-600 hover:scale-125 hover:-translate-y-2 
-            ${currentPage === page ? 'text-orange-600 scale-125' : ''}`}
+            className={`pagination-items transition-transform text-xl font-semibold  hover:scale-125 hover:-translate-y-2 
+            ${currentPage === page ? 'active-page text-orange-600 scale-125' : 'text-slate-600'}`}
           >
             <Link href={`/lists/${type}?page=${page}`}>
               <p className='page-link cursor-pointer'>{page}</p>
