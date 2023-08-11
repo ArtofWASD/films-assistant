@@ -3,7 +3,7 @@ require('dotenv/config');
 const nextConfig = {
   images: {
     formats:['image/webp'],
-    domains: ['st.kp.yandex.net'],
+    domains: ['st.kp.yandex.net', 'avatars.mds.yandex.net'],
   },
   experimental: {
     appDir: true

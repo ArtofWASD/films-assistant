@@ -12,14 +12,13 @@ interface ActrosListProps {
 }
 
 const ActrosList = ({ actors, params }: any) => {
-console.log(params);
   return (
     <div className="px-4">
       <div className='border-b-2 pt-4 text-lg font-semibold'>Режисёры</div>
       <section className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         {actors.filter((item:ActrosListProps)=>item.profession === 'режиссеры').map((item: ActrosListProps) => (
           <Link
-            href={`lists/${item.id}`}
+            href={`${params.filmid}/${item.id}`}
             key={item.id}
           >
             <ActorCard item={item} key={item.name} />
@@ -30,7 +29,7 @@ console.log(params);
       <section className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         {actors.filter((item:ActrosListProps) => item.profession === 'актеры').map((item:ActrosListProps) => (
           <Link
-            href={`/${item?.id}`}
+            href={`${params.filmid}/${item.id}`}
             key={item.id}
           >
             <ActorCard item={item} key={item.name} />

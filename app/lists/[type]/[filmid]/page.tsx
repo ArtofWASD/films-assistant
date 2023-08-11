@@ -7,11 +7,11 @@ interface FilmPageParams {
   };
 }
 const FilmPage = async ({ params }: FilmPageParams) => {
-  const film = await getMovueById(params.filmid);
-  
+const film = await getMovueById(params.filmid);
+
   return (
     <div className="my-16 text-white">
-      <MovieCard props={film} />
+      <MovieCard props={film} params={params}/>
     </div>
   );
 };

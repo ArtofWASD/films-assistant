@@ -35,10 +35,10 @@ interface MovieCardProps {
       }
     ];
   };
+  params:any
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
-  
+const MovieCard: React.FC<MovieCardProps> = ({ props, params }) => {
   return (
     <>
       <section className='movie-card grid justify-items-center'>
@@ -92,7 +92,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
               )}
             </div>
             <div>
-              <ActrosList actors ={props.persons}/>
+              <ActrosList actors={props.persons} params={params}/>
             </div>
           </div>
         </div>

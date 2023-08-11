@@ -44,11 +44,10 @@ const Tops = async ({ params, searchParams }: PageProps) => {
   return (
     <div>
       <h1 className='py-4 text-center mt-10 text-white'>Новинки {type}</h1>
-
       <div className='body'>
         <div className='flex flex-col gap-2 px-2 text-black'>
           {listOfFilms.docs.map((item: any, index: number) => (
-            <div key={index} className={`box ${getBoxClass(index)}`}>
+            <div key={index} className={`box ${index}`}>
               <Link href={`${params.type}/${item.id}`} key={item.kinopoiskId}>
                 <MovieCardPreview props={item} key={item.kinopoiskId} />
               </Link>
@@ -69,13 +68,6 @@ const Tops = async ({ params, searchParams }: PageProps) => {
       </div>
     </div>
   );
-};
-const getBoxClass = (index: number) => {
-  if (index % 5) {
-    return 'col-span-1 row-span-1';
-  } else {
-    return 'col-span-1 row-span-2';
-  }
 };
 
 export default Tops;
