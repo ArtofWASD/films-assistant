@@ -1,5 +1,5 @@
 import Image from "next/image";
-import getActorInfoById from "../../../../../src/utils/handlers/getActorInfoById";
+
 
 interface ActorPageProps{
     params: {
