@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import formatMinutes from '../../utils/handlers/movieLenghtFormatHandler';
+import ActrosList from './movie-card-utils/actors-list/actros-list';
 import Genres from './movie-card-utils/genres/genres';
 import Rating from './movie-card-utils/rating/rating';
 
@@ -16,16 +17,28 @@ interface MovieCardProps {
     ratingImdb: number;
     genres: [string];
     poster: {
-      previewUrl: string
+      previewUrl: string;
     };
     rating: {
       kp: number;
-      imdb:number;
-    }
+      imdb: number;
+    };
+    persons: [
+      {
+        id: number;
+        photo: string;
+        name: string;
+        enName: string;
+        description: string;
+        profession: string;
+        enProfession: string;
+      }
+    ];
   };
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
+  
   return (
     <>
       <section className='movie-card grid justify-items-center'>
@@ -42,8 +55,19 @@ const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
             />
           </div>
           <div className='movie-card_description px-4'>
-            <div className='md:border-0 border-b-2 py-2'>{props.description}</div>
-            <div className='flex md:border-0 border-b-2 py-2'>{props.movieLength ? (<><p className='font-semibold'>Продолжительность</p>: {formatMinutes(props.movieLength)}</>):(<></>)}</div>
+            <div className='md:border-0 border-b-2 py-2'>
+              {props.description}
+            </div>
+            <div className='flex md:border-0 border-b-2 py-2'>
+              {props.movieLength ? (
+                <>
+                  <p className='font-semibold'>Продолжительность</p>:{' '}
+                  {formatMinutes(props.movieLength)}
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
             <div className='flex gap-1 md:border-0 border-b-2 py-2'>
               <Genres genres={props.genres} />
             </div>
@@ -66,6 +90,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ props }) => {
               ) : (
                 <></>
               )}
+            </div>
+            <div>
+              <ActrosList actors ={props.persons}/>
             </div>
           </div>
         </div>

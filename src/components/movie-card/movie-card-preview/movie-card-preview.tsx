@@ -32,7 +32,7 @@ const MovieCardPreview: React.FC<MovieCardPreviewProps> = ({ props, key }) => {
         key={key}
       >
         <Image
-          src={props.poster.previewUrl}
+          src={props.poster?.previewUrl}
           alt={props.name}
           height={350}
           width={150}

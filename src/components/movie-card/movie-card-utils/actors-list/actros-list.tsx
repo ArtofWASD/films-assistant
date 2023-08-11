@@ -2,36 +2,38 @@ import Link from 'next/link';
 import ActorCard from '../actor-card/actor-card';
 
 interface ActrosListProps {
-  staffId: number;
-  nameRu: string;
-  nameEn: string;
+  id: number;
+  photo: string;
+  name: string;
+  enName: string;
   description: string;
-  posterUrl: string;
-  professionText: string;
+  profession: string;
+  enProfession: string;
 }
 
-const ActrosList = ({ actors, director, params }: any) => {
+const ActrosList = ({ actors, params }: any) => {
+console.log(params);
   return (
     <div className="px-4">
-      <p className='border-b-2 pt-4 text-lg font-semibold'>Режисёры</p>
+      <div className='border-b-2 pt-4 text-lg font-semibold'>Режисёры</div>
       <section className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        {director.map((item: ActrosListProps) => (
+        {actors.filter((item:ActrosListProps)=>item.profession === 'режиссеры').map((item: ActrosListProps) => (
           <Link
-            href={`lists/${params.type}/${params.filmid}/${item.staffId}`}
-            key={item.staffId}
+            href={`lists/${item.id}`}
+            key={item.id}
           >
-            <ActorCard item={item} key={item.nameRu} />
+            <ActorCard item={item} key={item.name} />
           </Link>
         ))}
       </section>
-      <p className='border-b-2 pt-4 text-lg font-semibold'>Актёры</p>
+      <div className='border-b-2 pt-4 text-lg font-semibold'>Актёры</div>
       <section className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        {actors.map((item: ActrosListProps) => (
+        {actors.filter((item:ActrosListProps) => item.profession === 'актеры').map((item:ActrosListProps) => (
           <Link
-            href={`lists/${params.type}/${params.filmid}/${item.staffId}`}
-            key={item.staffId}
+            href={`/${item?.id}`}
+            key={item.id}
           >
-            <ActorCard item={item} key={item.nameRu} />
+            <ActorCard item={item} key={item.name} />
           </Link>
         ))}
       </section>
