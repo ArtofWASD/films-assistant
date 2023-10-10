@@ -34,7 +34,7 @@ const Header = () => {
           />
         </div>
 
-        <Link href='/profile'>
+        <Link href='/login'>
           <Image
             src='/images/lk_logo.png'
             alt='Кинотаймер'
