@@ -32,7 +32,7 @@ const RegisterForm = () => {
           <p className='text-white text-sm py-1'>Ваше имя</p>
           <input
             {...register('name', {
-              required: 'required',
+              required: 'Обязательное поле для заполнения',
             })}
             className='w-96 p-1 rounded-md'
           />
@@ -41,7 +41,7 @@ const RegisterForm = () => {
             errors={errors}
             name='name'
             render={({ message }) => (
-              <p className='text-red-400 flex gap-2'>
+              <p className='text-red-400 flex gap-2 self-start'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
