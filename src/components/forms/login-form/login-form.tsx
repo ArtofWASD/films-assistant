@@ -32,7 +32,6 @@ const LoginForm = () => {
           <input
             {...register('email', {
               required: 'Поле обзательно для заполенния',
-              pattern: /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/,
             })}
             className='w-96 text-black'
           />
