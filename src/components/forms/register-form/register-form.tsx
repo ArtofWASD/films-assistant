@@ -2,6 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { supabase } from '../../../utils/handlers/supabase';
+import Link from 'next/link';
 
 interface RegisterFormData {
   name: string;
@@ -20,19 +21,17 @@ const RegisterForm = () => {
     mode: 'onBlur',
   });
 
-  const submitHandler = async(registerInfo: RegisterFormData) => {
-    const { data, error } = await supabase.auth.signUp(
-      {
-        email: `${registerInfo.email}`,
-        password: `${registerInfo.password}`,
-        options: {
-          data: {
-            first_name: `${registerInfo.name}`,
-          }
-        }
-      }
-    )
-    alert("Спасибо за регистрацию, подтвердите вашу почту")
+  const submitHandler = async (registerInfo: RegisterFormData) => {
+    const { data, error } = await supabase.auth.signUp({
+      email: `${registerInfo.email}`,
+      password: `${registerInfo.password}`,
+      options: {
+        data: {
+          first_name: `${registerInfo.name}`,
+        },
+      },
+    });
+    alert('Спасибо за регистрацию, подтвердите вашу почту');
     reset();
   };
 
@@ -80,6 +79,10 @@ const RegisterForm = () => {
           <input
             {...register('password', {
               required: 'Обязательное поле для заполнения',
+              minLength: {
+                value: 8,
+                message: 'Пароль должен иметь не менее 8 символов',
+              },
             })}
             className='w-96 p-1 rounded-md'
           />
@@ -98,7 +101,7 @@ const RegisterForm = () => {
               required: 'Обязательное поле для заполнения',
               validate: () =>
                 String(getValues('password')) ===
-                String(getValues('passwordSubmit'))||"Пароли не совпадают",
+                  String(getValues('passwordSubmit')) || 'Пароли не совпадают',
             })}
             className='w-96 py-1 rounded-md'
           />
@@ -107,9 +110,7 @@ const RegisterForm = () => {
           errors={errors}
           name='passwordSubmit'
           render={({ message }) => (
-            <p className='text-red-400 flex self-start text-xs'>
-              {message}
-            </p>
+            <p className='text-red-400 flex self-start text-xs'>{message}</p>
           )}
         />
         <input
@@ -119,6 +120,17 @@ const RegisterForm = () => {
           value='Регистрация'
         />
       </form>
+      <div className='flex gap-2 justify-center pt-2'>
+        <Link href='/login' className='text-blue-500'>
+          Авторизоваться
+        </Link>
+        <p className='text-white'>
+          Вернуться на{' '}
+          <Link href='/' className='text-blue-500'>
+            Главную
+          </Link>{' '}
+        </p>
+      </div>
     </>
   );
 };
