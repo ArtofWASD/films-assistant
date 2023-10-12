@@ -1,7 +1,8 @@
 'use client';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-import Image from "next/image";
+import { supabase } from '../../../utils/handlers/supabase';
+
 interface RegisterFormData {
   name: string;
   email: string;
@@ -14,14 +15,27 @@ const RegisterForm = () => {
     handleSubmit,
     formState: { errors, isValid },
     reset,
+    getValues,
   } = useForm<RegisterFormData>({
     mode: 'onBlur',
   });
 
-  const submitHandler = (data: RegisterFormData) => {
-    alert(JSON.stringify(data));
+  const submitHandler = async(registerInfo: RegisterFormData) => {
+    const { data, error } = await supabase.auth.signUp(
+      {
+        email: `${registerInfo.email}`,
+        password: `${registerInfo.password}`,
+        options: {
+          data: {
+            first_name: `${registerInfo.name}`,
+          }
+        }
+      }
+    )
+    alert("Спасибо за регистрацию, подтвердите вашу почту")
     reset();
   };
+
   return (
     <>
       <form
@@ -38,14 +52,12 @@ const RegisterForm = () => {
           />
         </label>
         <ErrorMessage
-            errors={errors}
-            name='name'
-            render={({ message }) => (
-              <p className='text-red-400 flex self-start text-xs'>
-                {message}
-              </p>
-            )}
-          />
+          errors={errors}
+          name='name'
+          render={({ message }) => (
+            <p className='text-red-400 flex self-start text-xs'>{message}</p>
+          )}
+        />
         <label>
           <p className='text-white text-sm py-1'>Введите адрес почты</p>
           <input
@@ -57,14 +69,12 @@ const RegisterForm = () => {
           />
         </label>
         <ErrorMessage
-            errors={errors}
-            name='email'
-            render={({ message }) => (
-              <p className='text-red-400 flex self-start text-xs'>
-                {message}
-              </p>
-            )}
-          />
+          errors={errors}
+          name='email'
+          render={({ message }) => (
+            <p className='text-red-400 flex self-start text-xs'>{message}</p>
+          )}
+        />
         <label>
           <p className='text-white text-sm py-1'>Введите пароль:</p>
           <input
@@ -75,32 +85,33 @@ const RegisterForm = () => {
           />
         </label>
         <ErrorMessage
-            errors={errors}
-            name='password'
-            render={({ message }) => (
-              <p className='text-red-400 flex self-start text-xs'>
-                {message}
-              </p>
-            )}
-          />
+          errors={errors}
+          name='password'
+          render={({ message }) => (
+            <p className='text-red-400 flex self-start text-xs'>{message}</p>
+          )}
+        />
         <label>
           <p className='text-white text-sm p-1'>Повторите пароль:</p>
           <input
             {...register('passwordSubmit', {
               required: 'Обязательное поле для заполнения',
+              validate: () =>
+                String(getValues('password')) ===
+                String(getValues('passwordSubmit'))||"Пароли не совпадают",
             })}
             className='w-96 py-1 rounded-md'
           />
         </label>
         <ErrorMessage
-            errors={errors}
-            name='passwordSubmit'
-            render={({ message }) => (
-              <p className='text-red-400 flex self-start text-xs'>
-                {message}
-              </p>
-            )}
-          />
+          errors={errors}
+          name='passwordSubmit'
+          render={({ message }) => (
+            <p className='text-red-400 flex self-start text-xs'>
+              {message}
+            </p>
+          )}
+        />
         <input
           type='submit'
           className='text-white bg-rose-600 disabled:bg-slate-400 mt-4 py-2 rounded-md w-48'
