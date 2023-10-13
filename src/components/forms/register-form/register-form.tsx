@@ -85,6 +85,7 @@ const RegisterForm = () => {
               },
             })}
             className='w-96 p-1 rounded-md'
+            type='password'
           />
         </label>
         <ErrorMessage
@@ -104,6 +105,7 @@ const RegisterForm = () => {
                   String(getValues('passwordSubmit')) || 'Пароли не совпадают',
             })}
             className='w-96 py-1 rounded-md'
+            type='password'
           />
         </label>
         <ErrorMessage

@@ -2,11 +2,14 @@
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import Link from 'next/link';
+import { supabase } from '../../../utils/handlers/supabase';
+import { useRouter } from 'next/navigation';
 interface FormData {
   email: string;
   password: string;
 }
 const LoginForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -16,9 +19,21 @@ const LoginForm = () => {
     mode: 'onBlur',
   });
 
-  const submitHandler = (data: any) => {
-    alert(JSON.stringify(data));
-    reset();
+  const submitHandler = async (loginData: FormData) => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: `${loginData.email}`,
+      password: `${loginData.password}`,
+    });
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    console.log(session);
+
+    if (session) {
+      localStorage.setItem('user', session.access_token);
+      router.push('/profile');
+    }
+    await reset();
   };
 
   return (
@@ -33,7 +48,7 @@ const LoginForm = () => {
             {...register('email', {
               required: 'Обязательное поле для заполнения',
             })}
-            className='w-96 p-1 rounded-md'
+            className='w-96 p-1 rounded-md text-black'
           />
         </label>
         <ErrorMessage
@@ -49,7 +64,8 @@ const LoginForm = () => {
             {...register('password', {
               required: 'Поле обзательно для заполенния',
             })}
-            className='w-96 p-1 rounded-md'
+            className='w-96 p-1 rounded-md text-black'
+            type='password'
           />
         </label>
         <ErrorMessage

@@ -1,9 +1,13 @@
-import React from 'react'
+import { supabase } from '../../src/utils/handlers/supabase';
 
-const ProfilePage = () => {
+const ProfilePage = async () => {
+  const { data: { user } } = await supabase.auth.getUser();
+
   return (
-    <div className="py-2">Профиль пользователя</div>
-  )
-}
+    <>
+      <div className='py-2 text-white'>Профиль пользователя</div>
+    </>
+  );
+};
 
-export default ProfilePage
+export default ProfilePage;
