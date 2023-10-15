@@ -27,17 +27,15 @@ const LoginForm = () => {
     const {
       data: { session },
     } = await supabase.auth.getSession();
-    console.log(session);
 
     if (session) {
-      localStorage.setItem('user', session.access_token);
       router.push('/profile');
     }
     await reset();
   };
 
   return (
-    <div className='flex flex-col gap-2'>
+    <div className='flex flex-col gap-4 items-center border-rose-600 border-2 p-4 rounded-lg hover:shadow-[0px_0px_5px_5px_rgba(159,18,57,0.5)]'>
       <form
         onSubmit={handleSubmit(submitHandler)}
         className='flex flex-col gap-4'

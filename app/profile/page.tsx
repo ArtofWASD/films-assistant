@@ -1,8 +1,10 @@
-import { supabase } from '../../src/utils/handlers/supabase';
+'use client';
+import { userData } from '../../src/components/store/userData';
 
 const ProfilePage = async () => {
-  const { data: { user } } = await supabase.auth.getUser();
-
+  const { fetch } = userData((state: any) => ({
+    fetch: state.fetch,
+  }));
   return (
     <>
       <div className='py-2 text-white'>Профиль пользователя</div>
