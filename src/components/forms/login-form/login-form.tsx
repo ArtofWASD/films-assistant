@@ -4,6 +4,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import Link from 'next/link';
 import { supabase } from '../../../utils/handlers/supabase';
 import { useRouter } from 'next/navigation';
+import { userData } from '../../store/userData';
 interface FormData {
   email: string;
   password: string;
@@ -18,7 +19,7 @@ const LoginForm = () => {
   } = useForm<FormData>({
     mode: 'onBlur',
   });
-
+  const addUser = userData((state: any) => state.getData);
   const submitHandler = async (loginData: FormData) => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email: `${loginData.email}`,
@@ -27,8 +28,10 @@ const LoginForm = () => {
     const {
       data: { session },
     } = await supabase.auth.getSession();
-
+    console.log(data);
+    
     if (session) {
+      await addUser(data.user)
       router.push('/profile');
     }
     await reset();

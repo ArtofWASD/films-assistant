@@ -3,11 +3,6 @@ interface ProfileLayoutProps {
 }
 
 const ProfileLayout: React.FC<ProfileLayoutProps> = ({ children }) => {
-  return (
-    <section className="grid justify-items-center text-white">
-      <p> Привет Username</p>
-      {children}
-    </section>
-  );
+  return <div className='grid justify-items-center text-white'>{children}</div>;
 };
 export default ProfileLayout;

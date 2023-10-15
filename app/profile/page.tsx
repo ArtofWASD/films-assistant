@@ -1,13 +1,13 @@
 'use client';
 import { userData } from '../../src/components/store/userData';
 
-const ProfilePage = async () => {
-  const { fetch } = userData((state: any) => ({
-    fetch: state.fetch,
-  }));
+const ProfilePage = () => {
+  const user = userData((state: any) => state.user);
   return (
     <>
-      <div className='py-2 text-white'>Профиль пользователя</div>
+      <div className='py-2 text-white flex justify-center'>
+        {/* <p>{user.user_metadata?.first_name}</p> */}
+      </div>
     </>
   );
 };
