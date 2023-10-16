@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <header className='grid grid-cols-4 gap-4 items-center'>
+    <header className='grid grid-cols-4 gap-4 items-center mb-4'>
       <div className='col-span-1'>
         <SidebarMenu />
       </div>
@@ -25,15 +25,16 @@ const Header = () => {
             id=''
             className='relative rounded-full border-2 border-rose-600 w-8 h-8 hover:w-72 bg-transparent text-white pl-7 duration-500 z-10 hover:shadow-[0px_0px_5px_5px_rgba(159,18,57,0.5)]'
           />
-          <Image
-            src='/images/search_icon.png'
-            alt='Кинотаймер'
-            width={30}
-            height={30}
-            className='absolute top-6 z-0'
-          />
+          <Link href='/'>
+            <Image
+              src='/images/search_icon.png'
+              alt='Кинотаймер'
+              width={30}
+              height={30}
+              className='absolute top-6 z-0'
+            />
+          </Link>
         </div>
-
         <Link href='/login'>
           <Image
             src='/images/lk_logo.png'

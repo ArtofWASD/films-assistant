@@ -7,7 +7,8 @@ interface userData {
     };
   } | null;
   films: Array<string>;
-  getData: () => void;
+  getData: (data: any) => void;
+  logOut: () => void;
 }
 export const userData = create<userData>()(
   devtools(
@@ -15,7 +16,8 @@ export const userData = create<userData>()(
       set => ({
         user: null,
         films: [],
-        getData: () => set(state => ({ user: state.user })),
+        getData: data => set(() => ({ user: data })),
+        logOut: () => set(state => ({ user: null })),
       }),
       { name: 'userData' }
     )

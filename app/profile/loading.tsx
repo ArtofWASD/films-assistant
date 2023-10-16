@@ -1,4 +1,3 @@
-'use client'
 const LoadingPage = () => {
   return (
     <div className='mt-16'>

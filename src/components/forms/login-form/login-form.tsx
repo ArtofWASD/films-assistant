@@ -19,19 +19,15 @@ const LoginForm = () => {
   } = useForm<FormData>({
     mode: 'onBlur',
   });
-  const addUser = userData((state: any) => state.getData);
+  const addUser = userData(state => state.getData);
   const submitHandler = async (loginData: FormData) => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email: `${loginData.email}`,
       password: `${loginData.password}`,
     });
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
-    console.log(data);
-    
-    if (session) {
-      await addUser(data.user)
+    //если получили сессию после авторизации, то редирект на страницу профиля
+    if (data) {
+      addUser(data.user);
       router.push('/profile');
     }
     await reset();
