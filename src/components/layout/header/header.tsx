@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import SidebarMenu from '../../sidebar-menu/sidebar-menu';
 import Image from 'next/image';
+import { userData } from '../../../utils/store/userData';
 
 const Header = () => {
+  const user = userData(state => state.user);
   return (
     <header className='grid grid-cols-4 gap-4 items-center mb-4'>
       <div className='col-span-1'>
@@ -35,7 +37,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <Link href='/login'>
+        <Link href={user !== null ? '/profile' : '/login'}>
           <Image
             src='/images/lk_logo.png'
             alt='Кинотаймер'
