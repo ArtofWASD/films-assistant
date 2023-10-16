@@ -19,7 +19,7 @@ const ProfilePage = () => {
   return (
     <>
       <div className='py-2 text-white flex justify-center'>
-        <p>{userInfo?.user_metadata?.first_name}</p>
+        <p>Привет {userInfo?.user_metadata?.first_name}</p>
       </div>
     </>
   );
