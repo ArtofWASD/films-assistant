@@ -1,3 +1,4 @@
+'use client'
 interface ProfileLayoutProps {
   children: React.ReactNode;
 }

@@ -1,12 +1,25 @@
 'use client';
-import { userData } from '../../src/components/store/userData';
-
+import { useEffect, useState } from 'react';
+import { userData } from '../../src/utils/store/userData';
+interface userState {
+  user_metadata: {
+    first_name: string;
+  }|null;
+}
 const ProfilePage = () => {
-  const user = userData((state: any) => state.user);
+  const user = userData((state) => state.user);
+  const [userInfo, setUserInfo] = useState<userState>();
+
+  useEffect(() => {
+    if (user) {
+      setUserInfo(user);
+    }
+  }, [user]);
+
   return (
     <>
       <div className='py-2 text-white flex justify-center'>
-        {/* <p>{user.user_metadata?.first_name}</p> */}
+        <p>{userInfo?.user_metadata?.first_name}</p>
       </div>
     </>
   );

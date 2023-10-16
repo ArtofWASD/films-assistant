@@ -4,7 +4,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import Link from 'next/link';
 import { supabase } from '../../../utils/handlers/supabase';
 import { useRouter } from 'next/navigation';
-import { userData } from '../../store/userData';
+import { userData } from '../../../utils/store/userData';
 interface FormData {
   email: string;
   password: string;
