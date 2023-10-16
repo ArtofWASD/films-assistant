@@ -34,7 +34,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <li className='pagination-prev'>
             <Link href={`/lists/${type}?page=${prevPage}`}>
               <Image
-                src={'/images/prew-arrow.png'}
+                src={'/images/prew.png'}
                 alt={'next'}
                 width={0}
                 height={0}
@@ -59,7 +59,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <li className='pagination-next'>
             <Link href={`/lists/${type}?page=${nextPage}`}>
               <Image
-                src={'/images/next-arrow.png'}
+                src={'/images/next.png'}
                 alt={'next'}
                 width={0}
                 height={0}
