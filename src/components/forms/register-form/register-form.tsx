@@ -22,6 +22,7 @@ const RegisterForm = () => {
   });
 
   const submitHandler = async (registerInfo: RegisterFormData) => {
+    // регистрируем пользователя с помошью почты и пароля
     const { data, error } = await supabase.auth.signUp({
       email: `${registerInfo.email}`,
       password: `${registerInfo.password}`,
@@ -31,6 +32,13 @@ const RegisterForm = () => {
         },
       },
     });
+    // получаем id пользователя после его регистрации
+    const userId = data.user?.id;
+    // добавляем ID пользователя в таблицу которая будет собирать в себе другие таблицы с списком фильмов.first-letter
+    const {} = await supabase.from('userData').insert({
+      user_id: userId,
+    });
+    // после успешной регистрации выбрасываем alert что регистрация успешна.
     alert('Спасибо за регистрацию, подтвердите вашу почту');
     reset();
   };
