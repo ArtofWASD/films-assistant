@@ -25,6 +25,10 @@ const LoginForm = () => {
       email: `${loginData.email}`,
       password: `${loginData.password}`,
     });
+    // алерт на неверный логин или пароль
+    if (error) { 
+      alert('Неверный логин или пароль');
+    }
     //если получили сессию после авторизации, то редирект на страницу профиля
     if (data) {
       addUser(data.user);

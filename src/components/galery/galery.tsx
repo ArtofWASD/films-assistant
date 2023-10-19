@@ -3,33 +3,33 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Genres from '../movie-card/movie-card-utils/genres/genres';
 import Countries from '../movie-card/movie-card-utils/countries/countries';
-
+// Галерея на главной странице
 const Galery = ({ images }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
-
+// хэндлер переключения на предидущий слайд
   const previousImage = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
       setImageLoaded(false);
     }
   };
-
+// хэндлер переключения на предидущий слайд
   const nextImage = () => {
     if (currentIndex < images.docs.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setImageLoaded(false);
     }
   };
-
-  const goToImage = (index: any) => {
+// Хэндлер переключения на конкретную страницу в галерее
+  const goToImage = (index: number) => {
     setCurrentIndex(index);
   };
 
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-
+  // текущий элемент в галерее
   const galeryItem = images.docs[currentIndex];
 
   return (
