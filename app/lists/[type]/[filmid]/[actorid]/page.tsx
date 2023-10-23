@@ -21,8 +21,7 @@ const ActorPage = async ({ params }: ActorPageProps) => {
     month: 'long',
     year: 'numeric',
   });
-  console.log(date);
-
+  
   return (
     <div className="grid grid-cols-6">
       <h1 className="h-8">{actor.name}</h1>
