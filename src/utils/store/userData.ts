@@ -16,10 +16,10 @@ export const userData = create<userData>()(
       set => ({
         user: null,
         films: [],
-        getData: data => set(() => ({ user: data })),
-        logOut: () => set(state => ({ user: null })),
+        getData: data => set(() => ({ user: data }), false, "getData"),
+        logOut: () => set(state => ({ user: null }), false, "logOut"),
       }),
-      { name: 'userData' }
+      { name: "User" },
     )
   )
 );
